@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactPaginate from 'react-paginate';
+
 import Book from './Book';
 
 class BookSearch extends Component {
@@ -8,13 +10,18 @@ class BookSearch extends Component {
       showResults: false,
       query: "",
       queryType: "all",
+      queryURL: "",
+      start: 0,
       results: {}
     };
 
     this.api_url = "https://openlibrary.org/search.json?";
+    this.apiPerPage = 100;
+    this.displayPerPage = 10;
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handlePageClick = this.handlePageClick.bind(this);
   }
 
   render() {
@@ -29,8 +36,11 @@ class BookSearch extends Component {
           <SearchResults
             query={this.state.query}
             results={this.state.results}
+            start={this.state.start}
+            pageCount={this.state.pageCount}
             books={this.props.books}
-            addBook={this.props.addBook} />
+            addBook={this.props.addBook}
+            handlePageClick={this.handlePageClick} />
         }
       </div>
     );
@@ -44,18 +54,35 @@ class BookSearch extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    const queryType = (this.state.queryType === 'all') ? 'q' : this.state.queryType;
+    let url = this.api_url + queryType + '=' + this.state.query;
     this.setState({
       showResults: true,
-      results: {}
+      results: {},
+      queryURL: url,
+      start: 0
     });
-    const queryType = (this.state.queryType === 'all') ? 'q' : this.state.queryType;
-    const url = this.api_url + queryType + '=' + this.state.query;
-    fetch(url)
+    this.fetchResultsPage(url, 0);
+  }
+
+  fetchResultsPage(url, start) {
+    let apiPage = Math.floor(start / this.apiPerPage) + 1;
+    fetch(url + "&page=" + apiPage)
       .then(response => response.json())
       .then(data => {
-        this.setState({ results: data });
+        data.docs = data.docs.slice(start % this.apiPerPage, start + this.displayPerPage);
+        this.setState({
+          results: data,
+          pageCount: Math.ceil(data.numFound / this.apiPerPage * this.displayPerPage)
+        });
         console.log(this.state);
       });
+  }
+
+  handlePageClick(data) {
+    let start = (data.selected * this.displayPerPage) % this.apiPerPage;
+    this.setState({start: start});
+    this.fetchResultsPage(this.state.queryURL, start);
   }
 }
 
@@ -82,7 +109,7 @@ function SearchInput(props) {
 
 function QueryTypeRadio(props) {
   return (
-    <div>
+    <React.Fragment>
       <input
         type="radio"
         name="queryType"
@@ -91,7 +118,7 @@ function QueryTypeRadio(props) {
         checked={props.queryType === props.value.toLowerCase()}
         onChange={props.onChange} />
       <label htmlFor={props.value.toLowerCase()}>{props.value}</label>
-    </div>
+    </React.Fragment>
   );
 }
 
@@ -99,12 +126,11 @@ function SearchResults(props) {
   if (Object.values(props.results).length >= 1) {
     return (
       <div className="search_results">
-        <p>{props.results.numFound} results found for "{props.query}"</p>
+        <p>Showing {props.start + 1}–{props.start + 1 + props.results.docs.length} of {props.results.numFound} results for "{props.query}"</p>
         <ul className="results_list bookList">
           {props.results.docs.map((item, i) => (
             <li key={item.key}>
               <Book
-                key={item.key}
                 item={item}
                 action="add"
                 addBook={props.addBook}
@@ -112,6 +138,12 @@ function SearchResults(props) {
             </li>
           ))}
         </ul>
+        <ReactPaginate
+          pageCount={props.pageCount}
+          onPageChange={props.handlePageClick}
+          containerClassName={'pagination'}
+          subContainerClassName={'pages pagination'}
+          activeClassName={'active'} />
       </div>
     );
   } else {

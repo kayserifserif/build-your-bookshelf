@@ -3,12 +3,12 @@ import Builder from './Builder';
 
 function App() {
   return (
-    <div>
+    <React.Fragment>
       <h1>Build Your Bookshelf</h1>
       <main className="main">
         <Builder />
       </main>
-    </div>
+    </React.Fragment>
   );
 }
 

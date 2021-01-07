@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import Book from './Book';
 
-class AddBooks extends Component {
+class BookSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,6 +15,7 @@ class AddBooks extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
   render() {
@@ -27,7 +29,9 @@ class AddBooks extends Component {
         {this.state.has_searched &&
           <SearchResults
             query={this.state.query}
-            results={this.state.results} />
+            results={this.state.results}
+            handleAdd={this.handleAdd}
+            books={this.props.books} />
         }
       </div>
     );
@@ -55,6 +59,10 @@ class AddBooks extends Component {
         this.setState({ results: data });
         console.log(this.state);
       });
+  }
+
+  handleAdd(item) {
+    this.props.addBook(item);
   }
 }
 
@@ -105,14 +113,16 @@ function SearchResults(props) {
     return (
       <div className="search_results">
         <p>{props.results.numFound} results found for "{props.query}"</p>
-        <ul className="results_list"></ul>
-        {props.results.docs.map((item, i) => (
-          <div className="result" key={i}>
-            <p className="result_title">Title: {item.title}</p>
-            <p className="result_author">Author: {Array.isArray(item.author_name) ? item.author_name.join(', ') : item.author_name}</p>
-            <p className="result_firstPublished">First published: {item.first_publish_year}</p>
-          </div>
-        ))}
+        <ul className="results_list">
+          {props.results.docs.map((item, i) => (
+            <Book key={item.key} item={item}>
+              <AddButton
+                item={item}
+                isAdded={props.books.includes(item)}
+                handleAdd={props.handleAdd} />
+            </Book>
+          ))}
+        </ul>
       </div>
     );
   } else {
@@ -124,4 +134,16 @@ function SearchResults(props) {
   }
 }
 
-export default AddBooks;
+function AddButton(props) {
+  if (!props.isAdded) {
+    return (
+      <button className="addResult" onClick={props.handleAdd.bind(this, props.item)}>Add</button>
+    );
+  } else {
+    return (
+      <button className="addResult" disabled>Added</button>
+    );
+  }
+}
+
+export default BookSearch;

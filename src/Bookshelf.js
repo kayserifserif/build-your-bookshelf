@@ -6,9 +6,15 @@ class Bookshelf extends Component {
     return (
       <div className="bookshelf">
         <h2>Your bookshelf</h2>
-        <ul className="books_list">
+        <ul className="bookshelf_list bookList">
           {this.props.books.map((item, i) => (
-            <Book key={item.key} item={item} />
+            <li key={item.key}>
+              <Book
+                key={item.key}
+                item={item}
+                action="remove"
+                removeBook={this.props.removeBook} />
+            </li>
           ))}
         </ul>
       </div>

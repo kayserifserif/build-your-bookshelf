@@ -5,9 +5,9 @@ class BookSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      has_searched: false,
+      showResults: false,
       query: "",
-      query_type: "all",
+      queryType: "all",
       results: {}
     };
 
@@ -15,7 +15,6 @@ class BookSearch extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleAdd = this.handleAdd.bind(this);
   }
 
   render() {
@@ -23,15 +22,15 @@ class BookSearch extends Component {
       <div className="search">
         <SearchInput
           query={this.state.query}
-          query_type={this.state.query_type}
+          queryType={this.state.queryType}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit} />
-        {this.state.has_searched &&
+        {this.state.showResults &&
           <SearchResults
             query={this.state.query}
             results={this.state.results}
-            handleAdd={this.handleAdd}
-            books={this.props.books} />
+            books={this.props.books}
+            addBook={this.props.addBook} />
         }
       </div>
     );
@@ -40,29 +39,23 @@ class BookSearch extends Component {
   handleChange(event) {
     const name = event.target.name;
     const value = event.target.value;
-    this.setState({
-      [name]: value
-    });
+    this.setState({ [name]: value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
-      has_searched: true,
+      showResults: true,
       results: {}
     });
-    const query_type = (this.state.query_type === 'all') ? 'q' : this.state.query_type;
-    const url = this.api_url + query_type + '=' + this.state.query;
+    const queryType = (this.state.queryType === 'all') ? 'q' : this.state.queryType;
+    const url = this.api_url + queryType + '=' + this.state.query;
     fetch(url)
       .then(response => response.json())
       .then(data => {
         this.setState({ results: data });
         console.log(this.state);
       });
-  }
-
-  handleAdd(item) {
-    this.props.addBook(item);
   }
 }
 
@@ -78,32 +71,26 @@ function SearchInput(props) {
           id="query"
           value={props.query}
           onChange={props.handleChange} />
-        <input
-          type="radio"
-          name="query_type"
-          value="all"
-          id="all"
-          checked={props.query_type === "all"}
-          onChange={props.handleChange} />
-        <label htmlFor="all">All</label>
-        <input
-          type="radio"
-          name="query_type"
-          value="title"
-          id="title"
-          checked={props.query_type === "title"}
-          onChange={props.handleChange} />
-        <label htmlFor="title">Title</label>
-        <input
-          type="radio"
-          name="query_type"
-          value="author"
-          id="author"
-          checked={props.query_type === "author"}
-          onChange={props.handleChange} />
-        <label htmlFor="author">Author</label>
+        <QueryTypeRadio value="All" queryType={props.queryType} onChange={props.handleChange} />
+        <QueryTypeRadio value="Title" queryType={props.queryType} onChange={props.handleChange} />
+        <QueryTypeRadio value="Author" queryType={props.queryType} onChange={props.handleChange} />
         <button type="submit">Search</button>
       </form>
+    </div>
+  );
+}
+
+function QueryTypeRadio(props) {
+  return (
+    <div>
+      <input
+        type="radio"
+        name="queryType"
+        value={props.value.toLowerCase()}
+        id={props.value.toLowerCase()}
+        checked={props.queryType === props.value.toLowerCase()}
+        onChange={props.onChange} />
+      <label htmlFor={props.value.toLowerCase()}>{props.value}</label>
     </div>
   );
 }
@@ -113,14 +100,15 @@ function SearchResults(props) {
     return (
       <div className="search_results">
         <p>{props.results.numFound} results found for "{props.query}"</p>
-        <ul className="results_list">
+        <ul className="results_list bookList">
           {props.results.docs.map((item, i) => (
-            <Book key={item.key} item={item}>
-              <AddButton
+            <li key={item.key}>
+              <Book
+                key={item.key}
                 item={item}
-                isAdded={props.books.includes(item)}
-                handleAdd={props.handleAdd} />
-            </Book>
+                action="add"
+                addBook={props.addBook} />
+            </li>
           ))}
         </ul>
       </div>
@@ -130,18 +118,6 @@ function SearchResults(props) {
       <div className="search_results">
         <p>Loading results for "{props.query}"...</p>
       </div>
-    );
-  }
-}
-
-function AddButton(props) {
-  if (!props.isAdded) {
-    return (
-      <button className="addResult" onClick={props.handleAdd.bind(this, props.item)}>Add</button>
-    );
-  } else {
-    return (
-      <button className="addResult" disabled>Added</button>
     );
   }
 }

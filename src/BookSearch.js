@@ -107,7 +107,8 @@ function SearchResults(props) {
                 key={item.key}
                 item={item}
                 action="add"
-                addBook={props.addBook} />
+                addBook={props.addBook}
+                isInBooks={props.books.includes(item)} />
             </li>
           ))}
         </ul>

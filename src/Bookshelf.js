@@ -8,7 +8,7 @@ class Bookshelf extends Component {
         <h2>Your bookshelf</h2>
         <ul className="bookshelf_list bookList">
           {this.props.books.map((item, i) => (
-            <li key={item.key}>
+            <li key={item.key} className="bookList_item">
               <Book
                 item={item}
                 action="remove"

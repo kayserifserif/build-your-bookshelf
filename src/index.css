@@ -15,3 +15,39 @@ body {
   display: grid;
   grid-template-columns: 50% 50%;
 }
+
+.bookList {
+  padding: 0;
+}
+
+.bookList_item {
+  list-style-type: none;
+}
+
+.book {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  margin: 1em;
+  gap: 1em;
+}
+
+.book_actionBtn {
+  width: 100px;
+  height: 50px;
+  padding: .5em 1em;
+  background: none;
+  color: blue;
+  border: 1px solid currentColor;
+  border-radius: 15px;
+  font-size: 1em;
+}
+
+.book_actionBtn:hover:not(:disabled) {
+  background: aliceblue;
+  cursor: pointer;
+}
+
+.book_actionBtn:disabled {
+  color: grey;
+  border: 1px solid currentColor;
+}

@@ -10,7 +10,6 @@ class Bookshelf extends Component {
           {this.props.books.map((item, i) => (
             <li key={item.key}>
               <Book
-                key={item.key}
                 item={item}
                 action="remove"
                 removeBook={this.props.removeBook} />

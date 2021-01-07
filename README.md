@@ -11,3 +11,7 @@ Emulating this lifelong accumulative experience, Build Your Bookshelf is a tool 
 - Aside from personal bookshelf, potential "share a shelf" feature. Create a shelf of books and get a link to share. Like book lists but more visually interesting.
 - In lieu of a database of book spines, algorithms to generate book spines in different styles with title, author, possibly publisher. Proposed styles: cover crop, cover with blur, dominant colour, vintage style, embellished floral style, dark style. Ability to choose style for each book or one style with randomness for entire bookshelf.
 - Ability to arrange books around bookshelf (including stacked) – ability to automatically sort by genre/author/colour?
+
+## Acknowledgements
+
+- [Book Shelf icon](https://icons8.com/icons/set/book-shelf) icon by [Icons8](https://icons8.com/)

@@ -123,29 +123,37 @@ function QueryTypeRadio(props) {
 }
 
 function SearchResults(props) {
-  if (Object.values(props.results).length >= 1) {
-    return (
-      <div className="search_results">
-        <p>Showing {props.start + 1}–{props.start + 1 + props.results.docs.length} of {props.results.numFound} results for "{props.query}"</p>
-        <ul className="results_list bookList">
-          {props.results.docs.map((item, i) => (
-            <li key={item.key} className="bookList_item">
-              <Book
-                item={item}
-                action="add"
-                addBook={props.addBook}
-                isInBooks={props.books.includes(item)} />
-            </li>
-          ))}
-        </ul>
-        <ReactPaginate
-          pageCount={props.pageCount}
-          onPageChange={props.handlePageClick}
-          containerClassName={'pagination'}
-          subContainerClassName={'pages pagination'}
-          activeClassName={'active'} />
-      </div>
-    );
+  if (Object.values(props.results).length > 0) {
+    if (props.results.numFound > 0) {
+      return (
+        <div className="search_results">
+          <p>Showing {props.start + 1}–{props.start + props.results.docs.length} of {props.results.numFound} results for "{props.query}"</p>
+          <ul className="results_list bookList">
+            {props.results.docs.map((item, i) => (
+              <li key={item.key} className="bookList_item">
+                <Book
+                  item={item}
+                  action="add"
+                  addBook={props.addBook}
+                  isInBooks={props.books.includes(item)} />
+              </li>
+            ))}
+          </ul>
+          <ReactPaginate
+            pageCount={props.pageCount}
+            onPageChange={props.handlePageClick}
+            containerClassName={'pagination'}
+            subContainerClassName={'pages pagination'}
+            activeClassName={'active'} />
+        </div>
+      );
+    } else {
+      return (
+        <div className="search_results">
+          <p>No results found for "{props.query}".</p>
+        </div>
+      );
+    }
   } else {
     return (
       <div className="search_results">

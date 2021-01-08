@@ -1,4 +1,5 @@
 import React from 'react';
+import Palette, { usePalette } from 'react-palette';
 
 import Canvas from './Canvas';
 
@@ -12,6 +13,8 @@ function Covers() {
   const width = number_of_pages * 0.3;
   const height = 273;
 
+  const { data, loading, error } = usePalette(cover);
+
   return (
     <div className="covers">
       <div>
@@ -20,11 +23,11 @@ function Covers() {
       </div>
       <div>
         <p>Colour block</p>
-        <Canvas width={width} height={height} mode="colourBlock" />
+        <Canvas width={width} height={height} mode="colourBlock" colors={data} />
       </div>
       <div>
         <p>Colour gradient</p>
-        <Canvas width={width} height={height} mode="colourGradient" />
+        <Canvas width={width} height={height} mode="colourGradient" colors={data} />
       </div>
       <div>
         <p>Cover crop</p>

@@ -4,19 +4,18 @@ function Canvas(props) {
 
   const canvasRef = useRef(null);
 
-  const draw = (ctx, frameCount, mode) => {
+  const draw = (ctx, frameCount, mode, colors) => {
 
     const title = "Things Fall Apart";
     const author = "Chinua Achebe";
     const publisher = "aws";
 
-    let red = "#A11101";
-    let orange = "#DF8208";
-
     switch (mode) {
 
       case "colourBlock":
-        ctx.fillStyle = red;
+        if (colors && colors.hasOwnProperty("vibrant")) {
+          ctx.fillStyle = colors.darkVibrant;
+        }
         ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
         ctx.fillStyle = "#ffffff";
@@ -41,8 +40,10 @@ function Canvas(props) {
 
       case "colourGradient":
         let grad = ctx.createLinearGradient(0, 0, ctx.canvas.width, ctx.canvas.height);
-        grad.addColorStop(0, red);
-        grad.addColorStop(1, orange);
+        if (colors && colors.hasOwnProperty("darkVibrant")) {
+          grad.addColorStop(0, colors.darkVibrant);
+          grad.addColorStop(1, colors.lightVibrant);
+        }
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
@@ -79,7 +80,7 @@ function Canvas(props) {
 
     const render = () => {
       frameCount++;
-      draw(context, frameCount, props.mode);
+      draw(context, frameCount, props.mode, props.colors);
       animationFrameId = window.requestAnimationFrame(render);
     };
     render();

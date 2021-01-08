@@ -1,14 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Builder from './Builder';
+import Covers from './Covers';
 
 function App() {
   return (
-    <React.Fragment>
-      <h1>Build Your Bookshelf</h1>
-      <main className="main">
-        <Builder />
-      </main>
-    </React.Fragment>
+    <Router>
+      <Switch>
+        <Route exact path="/"><Builder /></Route>
+        <Route path="/covers"><Covers /></Route>
+      </Switch>
+    </Router>
   );
 }
 

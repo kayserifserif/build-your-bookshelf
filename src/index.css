@@ -71,3 +71,21 @@ body {
   display: inline-block;
   margin: .5em;
 }
+
+.covers {
+  display: flex;
+}
+
+.covers > * {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+.covers canvas {
+  margin: auto;
+}
+
+.covers p {
+  text-align: center;
+}

@@ -15,10 +15,13 @@ class Builder extends Component {
 
   render() {
     return (
-      <div className="builder">
-        <BookSearch books={this.state.books} addBook={this.addBook} />
-        <Bookshelf books={this.state.books} removeBook={this.removeBook} />
-      </div>
+      <main>
+        <h1>Build Your Bookshelf</h1>
+        <div className="builder">
+          <BookSearch books={this.state.books} addBook={this.addBook} />
+          <Bookshelf books={this.state.books} removeBook={this.removeBook} />
+        </div>
+      </main>
     );
   }
 

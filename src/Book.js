@@ -26,7 +26,7 @@ class Book extends Component {
           className="book_cover"
           src={"http://covers.openlibrary.org/b/olid/" + this.props.item.cover_edition_key + "-M.jpg"}
           alt={"Cover of: " + this.props.item.title} />
-        <div class="book_info">
+        <div className="book_info">
           <p className="book_title">Title: {this.props.item.title}</p>
           <p className="book_author">Author: {Array.isArray(this.props.item.author_name) ? this.props.item.author_name.join(', ') : this.props.item.author_name}</p>
           <p className="book_firstPublished">First published: {this.props.item.first_publish_year}</p>

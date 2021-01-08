@@ -1,10 +1,15 @@
 import React from 'react';
-import Palette, { usePalette } from 'react-palette';
+import { usePalette } from 'react-palette';
 
 import Canvas from './Canvas';
 
-import cover from './covers/8372036-M.jpg';
-// import cover from './covers/8401325-M.jpg'
+// https://stackoverflow.com/questions/53762640/how-to-import-all-images-from-a-folder-in-reactjs
+function importAll(r) {
+  return r.keys().map(r);
+}
+
+const images = importAll(require.context('./covers', false, /\.jpg$/));
+const i = Math.floor(Math.random() * images.length);
 
 function Covers() {
 
@@ -13,13 +18,13 @@ function Covers() {
   const width = number_of_pages * 0.3;
   const height = 273;
 
-  const { data, loading, error } = usePalette(cover);
+  const { data, loading, error } = usePalette(images[i].default);
 
   return (
     <div className="covers">
       <div>
         <p>Original cover</p>
-        <img src={cover} alt="cover" />
+        <img src={images[i].default} alt="cover" />
       </div>
       <div>
         <p>Colour block</p>

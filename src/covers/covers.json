@@ -1,0 +1,98 @@
+{
+  "42617": {
+    "title": "Understanding Comics",
+    "author": "Scott McCloud",
+    "publisher": "Harper Paperbacks",
+    "pages": 224,
+    "height": 271,
+    "path": "/static/media/42617-M.2f77f1d7.jpg"
+  },
+  "88910": {
+    "title": "Understanding Movies",
+    "author": "Louis D. Giannetti",
+    "publisher": "Prentice-Hall",
+    "pages": 500,
+    "height": 222,
+    "path": "/static/media/88910-M.27bca397.jpg"
+  },
+  "577012": {
+    "title": "Master of Temptation",
+    "author": "Nicole Jordan",
+    "publisher": "Fawcett",
+    "pages": 432,
+    "height": 293,
+    "path": "/static/media/577012-M.8c031592.jpg"
+  },
+  "7890719": {
+    "title": "The Curious Incident of the Dog in the Night-Time",
+    "author": "Mark Haddon",
+    "publisher": "Doubleday",
+    "pages": 226,
+    "height": 276,
+    "path": "/static/media/7890719-M.aec8ebf5.jpg"
+  },
+  "8372036": {
+    "title": "Things Fall Apart",
+    "author": "Chinua Achebe",
+    "publisher": "Astor-Honor",
+    "pages": 216,
+    "height": 273,
+    "path": "/static/media/8372036-M.ed0f5f05.jpg"
+  },
+  "8387264": {
+    "title": "The Help",
+    "author": "Kathryn Stockett",
+    "publisher": "Amy Einhorn Books",
+    "pages": 544,
+    "height": 283,
+    "path": "/static/media/8387264-M.76698ab9.jpg"
+  },
+  "8401325": {
+    "title": "Snow Falling on Cedars",
+    "author": "David Guterson",
+    "publisher": "Vintage",
+    "pages": 460,
+    "height": 269,
+    "path": "/static/media/8401325-M.37c06332.jpg"
+  },
+  "8431392": {
+    "title": "The Crucible",
+    "author": "Arthur Miller",
+    "publisher": "Bantam Books",
+    "pages": 143,
+    "height": 292,
+    "path": "/static/media/8431392-M.332b82af.jpg"
+  },
+  "8474037": {
+    "title": "Americanah",
+    "author": "Chimimanda Ngozi Adichie",
+    "publisher": "Alfred A. Knopf",
+    "pages": 477,
+    "height": 271,
+    "path": "/static/media/8474037-M.40bac3c6.jpg"
+  },
+  "8494916": {
+    "title": "Just After Sunset",
+    "author": "Stephen King",
+    "publisher": "Scribner",
+    "pages": 353,
+    "height": 281,
+    "path": "/static/media/8494916-M.f0842055.jpg"
+  },
+  "9159582": {
+    "title": "Collected Stories",
+    "author": "Roald Dahl",
+    "publisher": "Alfred A. Knopf",
+    "pages": 850,
+    "height": 302,
+    "path": "/static/media/9159582-M.0313c999.jpg"
+  },
+  "9242818": {
+    "title": "Animal Farm",
+    "author": "George Orwell",
+    "publisher": "Harcourt, Brace and Company",
+    "pages": 150,
+    "height": 276,
+    "path": "/static/media/9242818-M.736bc19e.jpg"
+  }
+}

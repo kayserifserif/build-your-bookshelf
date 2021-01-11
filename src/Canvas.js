@@ -1,30 +1,36 @@
 import React, { useRef, useEffect } from 'react';
 
+const INCH_PER_PAGE = 1 / 92.0;
+const PIXELS_PER_INCH = 36.0;
+
+// https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258
+
 function Canvas(props) {
 
   const canvasRef = useRef(null);
 
-  const draw = (ctx, frameCount, mode, data, colors, image) => {
+  const draw = (ctx, canvas, mode, data, colors, img) => {
+    // max width
     let maxWidth = 0;
-    ctx.font = "16px serif";
-    for (let word of data.title.split(" ")) {
-      maxWidth = Math.max(maxWidth, ctx.measureText(word).width);
-    }
-    ctx.font = "12px serif";
-    for (let word of data.author.split(" ")) {
-      maxWidth = Math.max(maxWidth, ctx.measureText(word).width);
-    }
-    ctx.font = "11px serif";
-    for (let word of data.publisher.split(" ")) {
-      maxWidth = Math.max(maxWidth, ctx.measureText(word).width);
+    for (let pair of [["16px serif", data.title], ["12px serif", data.author], ["11px serif", data.publisher]]) {
+      ctx.font = pair[0];
+      for (let word of pair[1].split(" ")) {
+        maxWidth = Math.max(maxWidth, ctx.measureText(word).width);
+      }
     }
 
-    if (mode === "colourBlock") colourBlock(ctx, colors);
-    else if (mode === "colourGradient") colourGradient(ctx, colors);
-    else if (mode === "coverCrop") coverCrop(ctx, image);
-    else if (mode === "coverBlur") coverBlur(ctx, image);
-
-    text(ctx, data, maxWidth);
+    if (mode === "colourBlock") {
+      colourBlock(ctx, colors);
+      text(ctx, data, maxWidth);
+    } else if (mode === "colourGradient") {
+      colourGradient(ctx, colors);
+      text(ctx, data, maxWidth);
+    } else if (mode === "coverCrop") {
+      coverCrop(ctx, img, canvas.width);
+    } else if (mode === "coverBlur") {
+      coverBlur(ctx, img, canvas.width);
+      text(ctx, data, maxWidth);
+    }
   }
 
   const colourBlock = (ctx, colors) => {
@@ -44,12 +50,14 @@ function Canvas(props) {
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   }
 
-  const coverCrop = (ctx, image) => {
-
+  const coverCrop = (ctx, img, canvasWidth) => {
+    ctx.drawImage(img, -(img.width - canvasWidth) * 0.5, 0);
   }
 
-  const coverBlur = (ctx, image) => {
-
+  const coverBlur = (ctx, img, canvasWidth) => {
+    ctx.filter = "blur(4px)";
+    ctx.drawImage(img, -(img.width - canvasWidth) * 0.5, 0);
+    ctx.filter = "none";
   }
 
   const text = (ctx, data, maxWidth) => {
@@ -97,12 +105,21 @@ function Canvas(props) {
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
-    let frameCount = 0;
+    // let frameCount = 0;
     let animationFrameId;
 
+    let img = new Image();
+    img.src = props.data.path;
+    img.onload = () => {
+      let height = img.height;
+      let thickness = props.data.pages * INCH_PER_PAGE * PIXELS_PER_INCH;
+      canvas.height = height;
+      canvas.width = thickness;
+    }
+
     const render = () => {
-      frameCount++;
-      draw(context, frameCount, props.mode, props.data, props.colors, props.image);
+      // frameCount++;
+      draw(context, canvas, props.mode, props.data, props.colors, img);
       animationFrameId = window.requestAnimationFrame(render);
     };
     render();

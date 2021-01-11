@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import ReactPaginate from 'react-paginate';
 
 import Book from './Book';
+import CoverGenerator from './CoverGenerator';
 
 class BookSearch extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      addingBook: null,
       showResults: false,
       query: "",
       queryType: "all",
@@ -21,6 +23,8 @@ class BookSearch extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleAddBook = this.handleAddBook.bind(this);
+    this.handleAddCover = this.handleAddCover.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
   }
 
@@ -39,7 +43,9 @@ class BookSearch extends Component {
             start={this.state.start}
             pageCount={this.state.pageCount}
             books={this.props.books}
-            addBook={this.props.addBook}
+            addBook={this.handleAddBook}
+            addingBook={this.state.addingBook}
+            addCover={this.handleAddCover}
             handlePageClick={this.handlePageClick} />
         }
       </div>
@@ -63,6 +69,22 @@ class BookSearch extends Component {
       start: 0
     });
     this.fetchResultsPage(url, 0);
+  }
+
+  handleAddBook(event) {
+    // this.props.addBook(event);
+    this.setState({
+      addingBook: event
+    });
+    console.log(event);
+  }
+
+  handleAddCover(item) {
+    console.log(item);
+    this.props.addBook(item);
+    this.setState({
+      addingBook: null
+    });
   }
 
   fetchResultsPage(url, start) {
@@ -136,6 +158,9 @@ function SearchResults(props) {
                   action="add"
                   addBook={props.addBook}
                   isInBooks={props.books.includes(item)} />
+                {props.addingBook === item &&
+                  <CoverGenerator data={item} handleAdd={props.addCover.bind(this, item)} />
+                }
               </li>
             ))}
           </ul>

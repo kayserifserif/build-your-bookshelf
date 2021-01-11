@@ -1,14 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Builder from './Builder';
-import Covers from './Covers';
+import CoverGenerator from './CoverGenerator';
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/"><Builder /></Route>
-        <Route path="/covers"><Covers /></Route>
+        <Route path="/covers"><CoverGenerator /></Route>
       </Switch>
     </Router>
   );

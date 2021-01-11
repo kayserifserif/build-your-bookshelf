@@ -1,86 +1,98 @@
 {
   "42617": {
     "title": "Understanding Comics",
-    "author": "Scott McCloud",
-    "publisher": "Harper Paperbacks",
-    "pages": 224,
-    "path": "/static/media/42617-M.2f77f1d7.jpg"
+    "author_name": ["Scott McCloud"],
+    "publisher": ["Harper Paperbacks"],
+    "number_of_pages": 224,
+    "path": "/static/media/42617-M.2f77f1d7.jpg",
+    "cover_edition_key": "OL9240710M"
   },
   "88910": {
     "title": "Understanding Movies",
-    "author": "Louis D. Giannetti",
-    "publisher": "Prentice-Hall",
+    "author_name": ["Louis D. Giannetti"],
+    "publisher": ["Prentice-Hall"],
     "pages": 500,
-    "path": "/static/media/88910-M.27bca397.jpg"
+    "path": "/static/media/88910-M.27bca397.jpg",
+    "cover_edition_key": "OL781611M"
   },
   "577012": {
     "title": "Master of Temptation",
-    "author": "Nicole Jordan",
-    "publisher": "Fawcett",
+    "author_name": ["Nicole Jordan"],
+    "publisher": ["Fawcett"],
     "pages": 432,
-    "path": "/static/media/577012-M.8c031592.jpg"
+    "path": "/static/media/577012-M.8c031592.jpg",
+    "cover_edition_key": "OL7910703M"
   },
   "7890719": {
     "title": "The Curious Incident of the Dog in the Night-Time",
-    "author": "Mark Haddon",
-    "publisher": "Doubleday",
+    "author_name": ["Mark Haddon"],
+    "publisher": ["Doubleday"],
     "pages": 226,
-    "path": "/static/media/7890719-M.aec8ebf5.jpg"
+    "path": "/static/media/7890719-M.aec8ebf5.jpg",
+    "cover_edition_key": "OL25775986M"
   },
   "8372036": {
     "title": "Things Fall Apart",
-    "author": "Chinua Achebe",
-    "publisher": "Astor-Honor",
+    "author_name": ["Chinua Achebe"],
+    "publisher": ["Astor-Honor"],
     "pages": 216,
-    "path": "/static/media/8372036-M.ed0f5f05.jpg"
+    "path": "/static/media/8372036-M.ed0f5f05.jpg",
+    "cover_edition_key": "OL7509044M"
   },
   "8387264": {
     "title": "The Help",
-    "author": "Kathryn Stockett",
-    "publisher": "Amy Einhorn Books",
+    "author_name": ["Kathryn Stockett"],
+    "publisher": ["Amy Einhorn Books"],
     "pages": 544,
-    "path": "/static/media/8387264-M.76698ab9.jpg"
+    "path": "/static/media/8387264-M.76698ab9.jpg",
+    "cover_edition_key": "OL24187776M"
   },
   "8401325": {
     "title": "Snow Falling on Cedars",
-    "author": "David Guterson",
-    "publisher": "Vintage",
+    "author_name": ["David Guterson"],
+    "publisher": ["Vintage"],
     "pages": 460,
-    "path": "/static/media/8401325-M.37c06332.jpg"
+    "path": "/static/media/8401325-M.37c06332.jpg",
+    "cover_edition_key": "OL7362464M"
   },
   "8431392": {
     "title": "The Crucible",
-    "author": "Arthur Miller",
-    "publisher": "Bantam Books",
+    "author_name": ["Arthur Miller"],
+    "publisher": ["Bantam Books"],
     "pages": 143,
-    "path": "/static/media/8431392-M.332b82af.jpg"
+    "path": "/static/media/8431392-M.332b82af.jpg",
+    "cover_edition_key": "OL26777369M"
   },
   "8474037": {
     "title": "Americanah",
-    "author": "Chimimanda Ngozi Adichie",
-    "publisher": "Alfred A. Knopf",
+    "author_name": ["Chimimanda Ngozi Adichie"],
+    "publisher": ["Alfred A. Knopf"],
     "pages": 477,
-    "path": "/static/media/8474037-M.40bac3c6.jpg"
+    "path": "/static/media/8474037-M.40bac3c6.jpg",
+    "cover_edition_key": "OL25428864M"
   },
   "8494916": {
     "title": "Just After Sunset",
-    "author": "Stephen King",
-    "publisher": "Scribner",
+    "author_name": ["Stephen King"],
+    "publisher": ["Scribner"],
     "pages": 353,
-    "path": "/static/media/8494916-M.f0842055.jpg"
+    "path": "/static/media/8494916-M.f0842055.jpg",
+    "cover_edition_key": "OL24590201M"
   },
   "9159582": {
     "title": "Collected Stories",
-    "author": "Roald Dahl",
-    "publisher": "Alfred A. Knopf",
+    "author_name": ["Roald Dahl"],
+    "publisher": ["Alfred A. Knopf"],
     "pages": 850,
-    "path": "/static/media/9159582-M.0313c999.jpg"
+    "path": "/static/media/9159582-M.0313c999.jpg",
+    "cover_edition_key": "OL22745961M"
   },
   "9242818": {
     "title": "Animal Farm",
-    "author": "George Orwell",
-    "publisher": "Harcourt, Brace and Company",
+    "author_name": ["George Orwell"],
+    "publisher": ["Harcourt, Brace and Company"],
     "pages": 150,
-    "path": "/static/media/9242818-M.736bc19e.jpg"
+    "path": "/static/media/9242818-M.736bc19e.jpg",
+    "cover_edition_key": "OL7508078M"
   }
 }

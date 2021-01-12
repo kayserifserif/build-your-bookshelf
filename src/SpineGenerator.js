@@ -1,9 +1,9 @@
 import React from 'react';
 import { usePalette } from 'react-palette';
 
-import Canvas from './Canvas';
+import SpineCanvas from './SpineCanvas';
 
-function CoverGenerator(props) {
+function SpineGenerator(props) {
 
   let coverUrl = "https://covers.openlibrary.org/b/olid/" + props.data.cover_edition_key + "-M.jpg";
   let coverUrlCors = "https://cors-anywhere.herokuapp.com/" + coverUrl;
@@ -11,7 +11,7 @@ function CoverGenerator(props) {
   const palette = usePalette(coverUrlCors);
 
   return (
-    <div className="covers">
+    <div className="spines">
       {/*<div>
         <p>Original cover</p>
         <img src={coverUrl} alt="cover" />
@@ -19,7 +19,7 @@ function CoverGenerator(props) {
       <div>
         <p>Colour block</p>
         <button>
-          <Canvas
+          <SpineCanvas
             mode="colourBlock" data={props.data}
             cover_url={coverUrl} colors={palette.data}
             handleAdd={props.handleAdd} />
@@ -28,7 +28,7 @@ function CoverGenerator(props) {
       <div>
         <p>Colour gradient</p>
         <button>
-          <Canvas
+          <SpineCanvas
             mode="colourGradient" data={props.data}
             cover_url={coverUrl} colors={palette.data}
             handleAdd={props.handleAdd} />
@@ -37,7 +37,7 @@ function CoverGenerator(props) {
       <div>
         <p>Cover crop</p>
         <button>
-          <Canvas
+          <SpineCanvas
             mode="coverCrop" data={props.data}
             cover_url={coverUrl}
             handleAdd={props.handleAdd} />
@@ -46,7 +46,7 @@ function CoverGenerator(props) {
       <div>
         <p>Cover blur</p>
         <button>
-          <Canvas
+          <SpineCanvas
             mode="coverBlur" data={props.data}
             cover_url={coverUrl}
             handleAdd={props.handleAdd} />
@@ -57,4 +57,4 @@ function CoverGenerator(props) {
 
 }
 
-export default CoverGenerator;
+export default SpineGenerator;

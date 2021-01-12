@@ -72,20 +72,20 @@ body {
   margin: .5em;
 }
 
-.covers {
+.spines {
   display: flex;
 }
 
-.covers > * {
+.spines > * {
   display: flex;
   flex-direction: column;
   margin: 1em;
 }
 
-.covers canvas {
+.spines canvas {
   margin: auto;
 }
 
-.covers p {
+.spines p {
   text-align: center;
 }

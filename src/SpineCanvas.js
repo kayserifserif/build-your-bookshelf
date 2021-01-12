@@ -5,7 +5,7 @@ const PIXELS_PER_INCH = 36.0;
 
 // https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258
 
-function Canvas(props) {
+function SpineCanvas(props) {
 
   const canvasRef = useRef(null);
 
@@ -140,4 +140,4 @@ function Canvas(props) {
   );
 }
 
-export default Canvas;
+export default SpineCanvas;

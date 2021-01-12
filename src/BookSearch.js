@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactPaginate from 'react-paginate';
 
 import Book from './Book';
-import CoverGenerator from './CoverGenerator';
+import SpineGenerator from './SpineGenerator';
 
 class BookSearch extends Component {
   constructor(props) {
@@ -159,7 +159,7 @@ function SearchResults(props) {
                   addBook={props.addBook}
                   isInBooks={props.books.includes(item)} />
                 {props.addingBook === item &&
-                  <CoverGenerator data={item} handleAdd={props.addCover.bind(this, item)} />
+                  <SpineGenerator data={item} handleAdd={props.addCover.bind(this, item)} />
                 }
               </li>
             ))}

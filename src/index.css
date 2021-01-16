@@ -89,3 +89,20 @@ body {
 .spines p {
   text-align: center;
 }
+
+.bookshelf_bookshelf {
+  height: 623px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  background-color: #C4967C;
+  background-image: url('./img/empty_Bookshelf.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.bookshelf_bookSpine {
+  list-style-type: none;
+  margin: .5em;
+}

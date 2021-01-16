@@ -17,21 +17,31 @@ function SpineGenerator(props) {
         <img src={coverUrl} alt="cover" />
       </div>*/}
       <div>
-        <p>Colour block</p>
+        <p>Color block</p>
         <button>
           <SpineCanvas
-            mode="colourBlock" data={props.data}
+            mode="colorBlock" data={props.data}
             cover_url={coverUrl} colors={palette.data}
-            handleAdd={props.handleAdd} />
+            handleAdd={handleAdd.bind(this, {
+              mode: 'colorBlock',
+              data: props.data,
+              cover_url: coverUrl,
+              colors: palette.data
+            })} />
         </button>
       </div>
       <div>
-        <p>Colour gradient</p>
+        <p>Color gradient</p>
         <button>
           <SpineCanvas
-            mode="colourGradient" data={props.data}
+            mode="colorGradient" data={props.data}
             cover_url={coverUrl} colors={palette.data}
-            handleAdd={props.handleAdd} />
+            handleAdd={handleAdd.bind(this, {
+              mode: 'colorGradient',
+              data: props.data,
+              cover_url: coverUrl,
+              colors: palette.data
+            })} />
         </button>
       </div>
       <div>
@@ -40,7 +50,12 @@ function SpineGenerator(props) {
           <SpineCanvas
             mode="coverCrop" data={props.data}
             cover_url={coverUrl}
-            handleAdd={props.handleAdd} />
+            handleAdd={handleAdd.bind(this, {
+              mode: 'coverCrop',
+              data: props.data,
+              cover_url: coverUrl,
+              colors: palette.data
+            })} />
         </button>
       </div>
       <div>
@@ -49,11 +64,21 @@ function SpineGenerator(props) {
           <SpineCanvas
             mode="coverBlur" data={props.data}
             cover_url={coverUrl}
-            handleAdd={props.handleAdd} />
+            handleAdd={handleAdd.bind(this, {
+              mode: 'coverBlur',
+              data: props.data,
+              cover_url: coverUrl,
+              colors: palette.data
+            })} />
         </button>
       </div>
     </div>
   );
+
+  function handleAdd(spineData) {
+    console.log("SpineGenerator", spineData);
+    props.handleAdd(spineData);
+  }
 
 }
 

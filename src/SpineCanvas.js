@@ -19,11 +19,11 @@ function SpineCanvas(props) {
       }
     }
 
-    if (mode === "colourBlock") {
-      colourBlock(ctx, colors);
+    if (mode === "colorBlock") {
+      colorBlock(ctx, colors);
       text(ctx, data, maxWidth);
-    } else if (mode === "colourGradient") {
-      colourGradient(ctx, colors);
+    } else if (mode === "colorGradient") {
+      colorGradient(ctx, colors);
       text(ctx, data, maxWidth);
     } else if (mode === "coverCrop") {
       coverCrop(ctx, img);
@@ -33,14 +33,14 @@ function SpineCanvas(props) {
     }
   }
 
-  const colourBlock = (ctx, colors) => {
+  const colorBlock = (ctx, colors) => {
     if (colors && colors.hasOwnProperty("darkVibrant")) {
       ctx.fillStyle = colors.darkVibrant;
     }
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
   }
 
-  const colourGradient = (ctx, colors) => {
+  const colorGradient = (ctx, colors) => {
     let grad = ctx.createLinearGradient(0, 0, ctx.canvas.width, ctx.canvas.height);
     if (colors && colors.hasOwnProperty("darkVibrant")) {
       grad.addColorStop(0, colors.darkVibrant);
@@ -113,7 +113,7 @@ function SpineCanvas(props) {
     let animationFrameId;
 
     let img = new Image();
-    img.src = props.cover_url;
+    // img.crossOrigin = "anonymous";
     img.onload = () => {
       let height = img.height;
       // let thickness = props.data.details.number_of_pages * INCH_PER_PAGE * PIXELS_PER_INCH;
@@ -121,10 +121,12 @@ function SpineCanvas(props) {
       canvas.height = height;
       canvas.width = thickness;
     }
+    img.src = props.cover_url;
 
     const render = () => {
       // frameCount++;
       draw(context, canvas, props.mode, props.data, props.colors, img);
+      // let spineImg = canvas.toDataURL();
       animationFrameId = window.requestAnimationFrame(render);
     };
     render();

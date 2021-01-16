@@ -24,7 +24,7 @@ class BookSearch extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAddBook = this.handleAddBook.bind(this);
-    this.handleAddCover = this.handleAddCover.bind(this);
+    this.handleAddSpine = this.handleAddSpine.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
   }
 
@@ -45,7 +45,7 @@ class BookSearch extends Component {
             books={this.props.books}
             addBook={this.handleAddBook}
             addingBook={this.state.addingBook}
-            addCover={this.handleAddCover}
+            addSpine={this.handleAddSpine}
             handlePageClick={this.handlePageClick} />
         }
       </div>
@@ -79,9 +79,9 @@ class BookSearch extends Component {
     console.log(event);
   }
 
-  handleAddCover(item) {
-    console.log(item);
-    this.props.addBook(item);
+  handleAddSpine(spineData) {
+    // console.log(spineData);
+    this.props.addBook(spineData);
     this.setState({
       addingBook: null
     });
@@ -159,7 +159,7 @@ function SearchResults(props) {
                   addBook={props.addBook}
                   isInBooks={props.books.includes(item)} />
                 {props.addingBook === item &&
-                  <SpineGenerator data={item} handleAdd={props.addCover.bind(this, item)} />
+                  <SpineGenerator data={item} handleAdd={props.addSpine} />
                 }
               </li>
             ))}

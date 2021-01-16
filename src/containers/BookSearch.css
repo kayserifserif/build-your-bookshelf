@@ -1,3 +1,18 @@
+.search {
+  max-height: 82vh;
+  overflow: scroll;
+  padding: 2em 3em;
+}
+
+.search_form {
+  width: 100%;
+  display: flex;
+}
+
+.search_form > * {
+  margin: .5em;
+}
+
 .results_list {
   padding: 0;
 }
@@ -6,14 +21,8 @@
   list-style-type: none;
 }
 
-.result {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  margin: 1em;
-  gap: 1em;
-}
-
 .pagination {
+  margin: 2em;
   padding: 0;
   display: flex;
   justify-content: center;

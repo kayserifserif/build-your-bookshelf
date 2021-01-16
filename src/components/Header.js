@@ -1,7 +1,5 @@
 // modules
 import React from 'react';
-// assets
-import './Header.css';
 
 function Header(props) {
   return (

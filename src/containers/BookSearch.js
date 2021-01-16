@@ -107,6 +107,7 @@ class BookSearch extends Component {
   }
 
   handlePageClick(data) {
+    // TODO: go to top of search results
     let start = (data.selected * this.displayPerPage) % this.apiPerPage;
     this.setState({start: start});
     this.fetchResultsPage(this.state.queryURL, start);
@@ -118,33 +119,32 @@ function SearchInput(props) {
     <div className="search_input">
       <h2>Add a book</h2>
       <form className="search_form" onSubmit={props.handleSubmit}>
-        <label htmlFor="query">Search</label>
         <input
           type="text"
           name="query"
           id="query"
+          className="search_box"
           value={props.query}
           onChange={props.handleChange} />
-        <QueryTypeRadio value="All" queryType={props.queryType} onChange={props.handleChange} />
-        <QueryTypeRadio value="Title" queryType={props.queryType} onChange={props.handleChange} />
-        <QueryTypeRadio value="Author" queryType={props.queryType} onChange={props.handleChange} />
+        <select name="queryType" value={props.queryType} onChange={props.handleChange}>
+          <option value="all">All</option>
+          <option value="title">Title</option>
+          <option value="author">Author</option>
+        </select>
         <button type="submit">Search</button>
       </form>
     </div>
   );
 }
 
-function QueryTypeRadio(props) {
+function QueryTypeOption(props) {
   return (
     <React.Fragment>
-      <input
-        type="radio"
-        name="queryType"
+      <option
         value={props.value.toLowerCase()}
-        id={props.value.toLowerCase()}
-        checked={props.queryType === props.value.toLowerCase()}
-        onChange={props.onChange} />
-      <label htmlFor={props.value.toLowerCase()}>{props.value}</label>
+        id={props.value.toLowerCase()}>
+          {props.value}
+      </option>
     </React.Fragment>
   );
 }

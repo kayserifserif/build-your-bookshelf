@@ -1,7 +1,5 @@
 // modules
 import React from 'react';
-// assets
-import './Footer.css';
 
 function Footer(props) {
   return (

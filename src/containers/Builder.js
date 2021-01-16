@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import BookSearch from './BookSearch';
 import Bookshelf from './Bookshelf';
+import Footer from '../components/Footer';
 // assets
 import './Builder.css';
 
@@ -22,8 +23,10 @@ class Builder extends Component {
   render() {
     return (
       <div className="builder">
-        <Bookshelf books={this.state.books} removeBook={this.removeBook} clearBooks={this.clearBooks} />
+        <Header />
         <BookSearch books={this.state.books} addBook={this.addBook} />
+        <Bookshelf books={this.state.books} removeBook={this.removeBook} clearBooks={this.clearBooks} />
+        <Footer />
       </div>
     );
   }

@@ -6,7 +6,40 @@
 
 html,
 body {
-  /* margin: 0; */
-  /* padding: 0; */
+  margin: 0;
+  padding: 0;
   height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+a {
+  color: blue;
+  text-decoration: none;
+  border-bottom: 1px solid currentcolor;
+}
+
+.header,
+.footer {
+  background-color: #fff;
+  padding: 1em 2.5em;
+}
+
+.title {
+  color: blue;
+  text-decoration: none;
+  border: none;
+  padding-left: .5em;
+  font-weight: bold;
+}
+
+.footer {
+  background-color: #fff;
+  padding: 1em 2.5em;
+}
+
+.footer p {
+  text-align: center;
 }

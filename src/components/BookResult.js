@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // components
 import Button from './Button';
+// assets
+import './BookResult.css';
 
 /**
  * Book listing in search results.
@@ -42,8 +44,8 @@ class BookResult extends Component {
       <div className="result">
         {image}
         <div className="result_info">
-          <p className="result_title">Title: {this.props.item.title}</p>
-          <p className="result_author">Author: {Array.isArray(this.props.item.author_name) ? this.props.item.author_name.join(', ') : this.props.item.author_name}</p>
+          <h3 className="result_title">{this.props.item.title}</h3>
+          <p className="result_author">{Array.isArray(this.props.item.author_name) ? this.props.item.author_name.join(', ') : this.props.item.author_name}</p>
           <p className="result_firstPublished">First published: {this.props.item.first_publish_year}</p>
         </div>
         {actionBtn}

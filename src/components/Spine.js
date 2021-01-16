@@ -142,6 +142,9 @@ function Spine(props) {
 
   }, [draw]);
 
+  // TODO:
+  // fix unknown prop error https://reactjs.org/warnings/unknown-prop.html
+  // account for results without covers
   return (
     <canvas className="spine" ref={canvasRef} {...props} onClick={props.handleAdd}></canvas>
   );

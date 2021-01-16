@@ -1,5 +1,13 @@
+.bookshelf {
+  background-color: #F7F7F7;
+  padding: 4em;
+  margin: 2em;
+  border-radius: 15px;
+  height: calc(100vh - 4em);
+}
+
 .bookshelf_list {
-  height: 623px;
+  height: 485px;
   padding: 0;
   display: flex;
   flex-wrap: wrap;

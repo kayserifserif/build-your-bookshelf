@@ -1,11 +1,11 @@
 // modules
 import React from 'react';
 // components
-import Book from './Book';
+import BookResult from './BookResult';
 
 export default {
-  title: 'Components/Book',
-  component: Book,
+  title: 'Components/BookResult',
+  component: BookResult,
   args: {
     item: {
       author_name: ['Jane Austen'],
@@ -25,6 +25,6 @@ export default {
   }
 };
 
-const Template = (args) => <Book {...args} />;
+const Template = (args) => <BookResult {...args} />;
 
 export const Default = Template.bind({});

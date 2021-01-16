@@ -1,11 +1,11 @@
 // modules
 import React from 'react';
 // components
-import SpineCanvas from './SpineCanvas';
+import Spine from './Spine';
 
 export default {
-  title: 'Components/SpineCanvas',
-  component: SpineCanvas,
+  title: 'Components/Spine',
+  component: Spine,
   args: {
     colors: {
       "vibrant": "#765232",
@@ -26,7 +26,7 @@ export default {
   }
 };
 
-const Template = (args) => <SpineCanvas {...args} />;
+const Template = (args) => <Spine {...args} />;
 
 export const ColorBlock = Template.bind({});
 ColorBlock.args = { mode: 'colorBlock' };

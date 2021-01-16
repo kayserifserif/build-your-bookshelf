@@ -1,7 +1,7 @@
 // modules
 import React from 'react';
 // components
-import SpineGenerator from '../components/SpineGenerator';
+import SpinesGenerator from '../components/SpinesGenerator';
 // assets
 import coverData from '../assets/covers/covers.json'
 
@@ -19,7 +19,7 @@ console.log(images);
 function Spines(props) {
   const id = Object.keys(coverData)[Math.floor(Math.random() * Object.keys(coverData).length)];
   return (
-    <SpineGenerator data={coverData[id]} />
+    <SpinesGenerator data={coverData[id]} />
   );
 }
 

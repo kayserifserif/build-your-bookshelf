@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 // components
-import Book from '../components/Book';
-import SpineGenerator from '../components/SpineGenerator';
+import BookResult from '../components/BookResult';
+import SpinesGenerator from '../components/SpinesGenerator';
 // assets
 import './BookSearch.css';
 
@@ -160,13 +160,13 @@ function SearchResults(props) {
           <ul className="results_list bookList">
             {props.results.docs.map((item, i) => (
               <li key={item.key} className="bookList_item">
-                <Book
+                <BookResult
                   item={item}
                   action="add"
                   addBook={props.addBook}
                   isInBooks={props.books.includes(item)} />
                 {props.addingBook === item &&
-                  <SpineGenerator data={item} handleAdd={props.addSpine} />
+                  <SpinesGenerator data={item} handleAdd={props.addSpine} />
                 }
               </li>
             ))}

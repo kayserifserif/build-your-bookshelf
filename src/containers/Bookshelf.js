@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // components
-import SpineCanvas from '../components/SpineCanvas';
+import Spine from '../components/Spine';
 // assets
 import './Bookshelf.css';
 import empty_Bookshelf from '../assets/empty_Bookshelf.webp';
@@ -23,7 +23,7 @@ class Bookshelf extends Component {
                 item={item}
                 action="remove"
                 removeBook={this.props.removeBook} />*/}
-              <SpineCanvas
+              <Spine
                 className="spineCanvas"
                 mode={item.mode} data={item.data}
                 cover_url={item.cover_url} colors={item.colors} />

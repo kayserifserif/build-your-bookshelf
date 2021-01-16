@@ -3,14 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { usePalette } from 'react-palette';
 // components
-import SpineCanvas from './SpineCanvas';
+import Spine from './Spine';
 // assets
-import './SpineGenerator.css';
+import './SpinesGenerator.css';
 
 /**
  * Panel displaying spines generated from given book cover.
  */
-function SpineGenerator(props) {
+function SpinesGenerator(props) {
 
   let coverUrl = "https://covers.openlibrary.org/b/olid/" + props.data.cover_edition_key + "-M.jpg";
   let coverUrlCors = "https://cors-anywhere.herokuapp.com/" + coverUrl;
@@ -27,7 +27,7 @@ function SpineGenerator(props) {
       <div>
         <p>Color block</p>
         <button>
-          <SpineCanvas
+          <Spine
             mode="colorBlock" data={props.data}
             cover_url={coverUrl} colors={palette.data}
             handleAdd={handleAdd.bind(this, {
@@ -41,7 +41,7 @@ function SpineGenerator(props) {
       <div>
         <p>Color gradient</p>
         <button>
-          <SpineCanvas
+          <Spine
             mode="colorGradient" data={props.data}
             cover_url={coverUrl} colors={palette.data}
             handleAdd={handleAdd.bind(this, {
@@ -55,7 +55,7 @@ function SpineGenerator(props) {
       <div>
         <p>Cover crop</p>
         <button>
-          <SpineCanvas
+          <Spine
             mode="coverCrop" data={props.data}
             cover_url={coverUrl}
             handleAdd={handleAdd.bind(this, {
@@ -69,7 +69,7 @@ function SpineGenerator(props) {
       <div>
         <p>Cover blur</p>
         <button>
-          <SpineCanvas
+          <Spine
             mode="coverBlur" data={props.data}
             cover_url={coverUrl}
             handleAdd={handleAdd.bind(this, {
@@ -84,13 +84,13 @@ function SpineGenerator(props) {
   );
 
   function handleAdd(spineData) {
-    console.log("SpineGenerator", spineData);
+    console.log("SpinesGenerator", spineData);
     props.handleAdd(spineData);
   }
 
 }
 
-SpineGenerator.propTypes = {
+SpinesGenerator.propTypes = {
   /**
    * Book data from Open Library
    */
@@ -101,8 +101,8 @@ SpineGenerator.propTypes = {
   handleAdd: PropTypes.func.isRequired,
 };
 
-SpineGenerator.defaultProps = {
+SpinesGenerator.defaultProps = {
   handleAdd: e => console.log(e)
 };
 
-export default SpineGenerator;
+export default SpinesGenerator;

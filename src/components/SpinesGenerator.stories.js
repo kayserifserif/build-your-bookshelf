@@ -1,11 +1,11 @@
 // modules
 import React from 'react';
 // components
-import SpineGenerator from './SpineGenerator';
+import SpinesGenerator from './SpinesGenerator';
 
 export default {
-  title: 'Components/SpineGenerator',
-  component: SpineGenerator,
+  title: 'Components/SpinesGenerator',
+  component: SpinesGenerator,
   args: {
     data: {
       author_name: ['Jane Austen'],
@@ -18,6 +18,6 @@ export default {
   }
 };
 
-const Template = (args) => <SpineGenerator {...args} />;
+const Template = (args) => <SpinesGenerator {...args} />;
 
 export const Default = Template.bind({});

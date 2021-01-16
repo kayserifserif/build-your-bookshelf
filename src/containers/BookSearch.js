@@ -83,11 +83,9 @@ class BookSearch extends Component {
     this.setState({
       addingBook: event
     });
-    console.log(event);
   }
 
   handleAddSpine(spineData) {
-    // console.log(spineData);
     this.props.addBook(spineData);
     this.setState({
       addingBook: null
@@ -104,7 +102,6 @@ class BookSearch extends Component {
           results: data,
           pageCount: Math.ceil(data.numFound / this.apiPerPage * this.displayPerPage)
         });
-        console.log(this.state);
       });
   }
 
@@ -164,7 +161,7 @@ function SearchResults(props) {
                   item={item}
                   action="add"
                   addBook={props.addBook}
-                  isInBooks={props.books.includes(item)} />
+                  isInBooks={props.books.map(book => book.data).includes(item)} />
                 {props.addingBook === item &&
                   <SpinesGenerator data={item} handleAdd={props.addSpine} />
                 }

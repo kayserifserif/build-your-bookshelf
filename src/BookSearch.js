@@ -1,5 +1,6 @@
 // modules
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 // components
 import Book from './Book';
@@ -7,6 +8,9 @@ import SpineGenerator from './SpineGenerator';
 // assets
 import './BookSearch.css';
 
+/**
+ * Interface for searching and browsing results
+ */
 class BookSearch extends Component {
   constructor(props) {
     super(props);
@@ -190,5 +194,25 @@ function SearchResults(props) {
     );
   }
 }
+
+BookSearch.propTypes = {
+  /**
+   * Books added to bookshelf
+   */
+  books: PropTypes.array,
+  /**
+   * Search query
+   */
+  query: PropTypes.string,
+  /**
+   * Type of search query
+   */
+  queryType: PropTypes.oneOf(['Title', 'Author', 'All'])
+};
+
+BookSearch.defaultProps = {
+  books: [],
+  queryType: 'All'
+};
 
 export default BookSearch;

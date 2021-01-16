@@ -1,11 +1,15 @@
 // modules
 import React, { useRef, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const INCH_PER_PAGE = 1 / 92.0;
 const PIXELS_PER_INCH = 36.0;
 
 // https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258
 
+/**
+ * Canvas displaying a book spine generated from a given book cover
+ */
 function SpineCanvas(props) {
 
   const canvasRef = useRef(null);
@@ -141,6 +145,29 @@ function SpineCanvas(props) {
   return (
     <canvas ref={canvasRef} {...props} onClick={props.handleAdd}></canvas>
   );
+}
+
+SpineCanvas.propTypes = {
+  /**
+   * URL to book cover image (required for `coverCrop` and `coverBlur`)
+   */
+  cover_url: PropTypes.string,
+  /**
+   * Drawing function to use for generating a spine
+   */
+  mode: PropTypes.oneOf(['colorBlock', 'colorGradient', 'coverCrop', 'coverBlur']).isRequired,
+  /**
+   * Book data
+   */
+  data: PropTypes.object.isRequired,
+  /**
+   * Palette colors based on the book cover
+   */
+  colors: PropTypes.object.isRequired
+};
+
+SpineCanvas.defaultProps = {
+  mode: 'colorBlock'
 }
 
 export default SpineCanvas;

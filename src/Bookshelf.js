@@ -1,11 +1,15 @@
 // modules
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 // components
 import SpineCanvas from './SpineCanvas';
 // assets
 import './Bookshelf.css';
 import empty_Bookshelf from './img/empty_Bookshelf.webp';
 
+/**
+ * Bookshelf to which books are added
+ */
 class Bookshelf extends Component {
   render() {
     return (
@@ -30,5 +34,16 @@ class Bookshelf extends Component {
     );
   }
 }
+
+Bookshelf.propTypes = {
+  /**
+   * Books added to bookshelf
+   */
+  books: PropTypes.array
+};
+
+Bookshelf.defaultProps = {
+  books: []
+};
 
 export default Bookshelf;

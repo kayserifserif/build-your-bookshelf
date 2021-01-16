@@ -1,6 +1,10 @@
 // modules
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
+/**
+ * Book listing in search results.
+ */
 class Book extends Component {
   constructor(props) {
     super(props);
@@ -51,5 +55,27 @@ class Book extends Component {
     this.props.removeBook(item);
   }
 }
+
+// docs
+
+Book.propTypes = {
+  /**
+   * Available action for book
+   */
+  action: PropTypes.oneOf(['add', 'remove']).isRequired,
+  /**
+   * Data for book listing
+   */
+  item: PropTypes.object.isRequired,
+  /**
+   * Does the book already exist in the bookshelf?
+   */
+  isInBooks: PropTypes.bool
+};
+
+Book.defaultProps = {
+  action: 'add',
+  isInBooks: false
+};
 
 export default Book;

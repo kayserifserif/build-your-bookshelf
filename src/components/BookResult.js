@@ -1,6 +1,8 @@
 // modules
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// components
+import Button from './Button';
 
 /**
  * Book listing in search results.
@@ -15,23 +17,25 @@ class BookResult extends Component {
 
   render() {
     let image;
-    let actionButton;
+    let actionBtn;
     if (this.props.action === "add") {
       image = <img
           className="result_cover"
           src={"http://covers.openlibrary.org/b/olid/" + this.props.item.cover_edition_key + "-M.jpg"}
           alt={"Cover of: " + this.props.item.title} />;
       if (!this.props.isInBooks) {
-        actionButton = <button className="result_actionBtn addBook" onClick={this.handleAdd.bind(this, this.props.item)}>Add</button>;
+        // actionBtn = <button className="actionBtn" onClick={this.handleAdd.bind(this, this.props.item)}>Add</button>;
+        actionBtn = <Button onClick={this.handleAdd.bind(this, this.props.item)}>Add</Button>;
       } else {
-        actionButton = <button className="result_actionBtn addBook" disabled>Added</button>;
+        // actionBtn = <button className="actionBtn" disabled>Added</button>;
+        actionBtn = <Button disabled={true}>Added</Button>;
       }
     } else if (this.props.action === "remove") {
       image = <img
         className="result_cover"
         src={this.props.item.spine}
         alt={"Generated spine of: " + this.props.item.title} />;
-      actionButton = <button className="result_actionBtn removeBook" onClick={this.handleRemove.bind(this, this.props.item)}>Remove</button>;
+      actionBtn = <Button onClick={this.handleRemove.bind(this, this.props.item)}>Remove</Button>;
     }
 
     return (
@@ -42,7 +46,7 @@ class BookResult extends Component {
           <p className="result_author">Author: {Array.isArray(this.props.item.author_name) ? this.props.item.author_name.join(', ') : this.props.item.author_name}</p>
           <p className="result_firstPublished">First published: {this.props.item.first_publish_year}</p>
         </div>
-        {actionButton}
+        {actionBtn}
       </div>
     );
   }

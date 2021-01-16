@@ -102,6 +102,7 @@ class BookSearch extends Component {
           results: data,
           pageCount: Math.ceil(data.numFound / this.apiPerPage * this.displayPerPage)
         });
+        console.log(data);
       });
   }
 

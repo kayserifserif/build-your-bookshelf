@@ -5,7 +5,7 @@
   flex-wrap: wrap;
   align-items: flex-end;
   background-color: #C4967C;
-  background-image: url('./img/empty_Bookshelf.webp');
+  background-image: url('../assets/empty_Bookshelf.webp');
   background-repeat: no-repeat;
   background-size: contain;
 }

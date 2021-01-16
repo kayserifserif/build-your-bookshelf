@@ -2,10 +2,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // components
-import SpineCanvas from './SpineCanvas';
+import SpineCanvas from '../components/SpineCanvas';
 // assets
 import './Bookshelf.css';
-import empty_Bookshelf from './img/empty_Bookshelf.webp';
+import empty_Bookshelf from '../assets/empty_Bookshelf.webp';
 
 /**
  * Bookshelf to which books are added

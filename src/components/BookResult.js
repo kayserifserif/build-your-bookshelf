@@ -70,12 +70,17 @@ Book.propTypes = {
   /**
    * Does the book already exist in the bookshelf?
    */
-  isInBooks: PropTypes.bool
+  isInBooks: PropTypes.bool,
+  /**
+   * Handler for adding book
+   */
+  addBook: PropTypes.func
 };
 
 Book.defaultProps = {
   action: 'add',
-  isInBooks: false
+  isInBooks: false,
+  addBook: e => console.log(e)
 };
 
 export default Book;

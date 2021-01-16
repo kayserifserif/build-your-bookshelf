@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ReactPaginate from 'react-paginate';
 // components
-import Book from './Book';
-import SpineGenerator from './SpineGenerator';
+import Book from '../components/Book';
+import SpineGenerator from '../components/SpineGenerator';
 // assets
 import './BookSearch.css';
 

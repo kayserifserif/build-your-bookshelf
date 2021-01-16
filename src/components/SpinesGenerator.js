@@ -96,13 +96,13 @@ SpineGenerator.propTypes = {
    */
   data: PropTypes.object.isRequired,
   /**
-   * Click handler
+   * Handler for adding spine canvas
    */
   handleAdd: PropTypes.func.isRequired,
 };
 
 SpineGenerator.defaultProps = {
-  handleAdd: (e) => console.log(e)
+  handleAdd: e => console.log(e)
 };
 
 export default SpineGenerator;

@@ -1,9 +1,9 @@
 // modules
 import React from 'react';
 // components
-import SpineGenerator from './SpineGenerator';
+import SpineGenerator from '../components/SpineGenerator';
 // assets
-import coverData from './covers/covers.json'
+import coverData from '../assets/covers/covers.json'
 
 console.log(coverData);
 
@@ -11,7 +11,7 @@ console.log(coverData);
 function importAll(r) {
   return r.keys().map(r);
 }
-const images = importAll(require.context('./covers', false, /\.jpg$/));
+const images = importAll(require.context('../assets/covers', false, /\.jpg$/));
 console.log(images);
 
 // https://github.com/gabrielarchanjo/marvinj

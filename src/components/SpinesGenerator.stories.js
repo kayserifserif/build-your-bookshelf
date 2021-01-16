@@ -14,7 +14,7 @@ export default {
       title: 'Emma',
       publisher: ['Dramatic Pub.']
     },
-    handleAdd: (e) => console.log(e)
+    handleAdd: e => console.log(e)
   }
 };
 

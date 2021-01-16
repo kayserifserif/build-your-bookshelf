@@ -1,4 +1,4 @@
-.bookshelf_bookshelf {
+.bookshelf_list {
   height: 623px;
   padding: 0;
   display: flex;
@@ -10,7 +10,7 @@
   background-size: contain;
 }
 
-.bookshelf_bookSpine {
+.bookshelf_item {
   list-style-type: none;
   margin: .5em;
 }

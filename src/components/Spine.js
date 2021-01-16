@@ -10,7 +10,7 @@ const PIXELS_PER_INCH = 36.0;
 /**
  * Canvas displaying a book spine generated from a given book cover
  */
-function SpineCanvas(props) {
+function Spine(props) {
 
   const canvasRef = useRef(null);
 
@@ -143,11 +143,11 @@ function SpineCanvas(props) {
   }, [draw]);
 
   return (
-    <canvas ref={canvasRef} {...props} onClick={props.handleAdd}></canvas>
+    <canvas className="spine" ref={canvasRef} {...props} onClick={props.handleAdd}></canvas>
   );
 }
 
-SpineCanvas.propTypes = {
+Spine.propTypes = {
   /**
    * URL to book cover image (required for `coverCrop` and `coverBlur`)
    */
@@ -166,8 +166,8 @@ SpineCanvas.propTypes = {
   colors: PropTypes.object.isRequired
 };
 
-SpineCanvas.defaultProps = {
+Spine.defaultProps = {
   mode: 'colorBlock'
 }
 
-export default SpineCanvas;
+export default Spine;

@@ -2,16 +2,16 @@
   display: flex;
 }
 
-.spines > * {
+.spines_mode {
   display: flex;
   flex-direction: column;
   margin: 1em;
 }
 
-.spines canvas {
+.spines_mode .spine {
   margin: auto;
 }
 
-.spines p {
+.spines_mode p {
   text-align: center;
 }

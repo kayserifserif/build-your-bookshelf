@@ -1,24 +1,24 @@
-.bookList {
+.results_list {
   padding: 0;
 }
 
-.bookList_item {
+.results_item {
   list-style-type: none;
 }
 
-.book {
+.result {
   display: grid;
   grid-template-columns: auto 1fr auto;
   margin: 1em;
   gap: 1em;
 }
 
-.book_actionBtn {
+.result_actionBtn {
   width: 100px;
   height: 50px;
 }
 
-.book_actionBtn,
+.result_actionBtn,
 [role="button"] {
   padding: .5em;
   background: none;
@@ -28,14 +28,14 @@
   font-size: 1em;
 }
 
-.book_actionBtn:hover:not(:disabled),
+.result_actionBtn:hover:not(:disabled),
 .active [role="button"],
 [role="button"]:hover:not([aria-disabled="true"]) {
   background: aliceblue;
   cursor: pointer;
 }
 
-.book_actionBtn:disabled,
+.result_actionBtn:disabled,
 [role="button"][aria-disabled="true"] {
   color: grey;
   border: 1px solid currentColor;

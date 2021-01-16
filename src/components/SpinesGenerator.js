@@ -24,7 +24,7 @@ function SpinesGenerator(props) {
         <p>Original cover</p>
         <img src={coverUrl} alt="cover" />
       </div>*/}
-      <div>
+      <div className="spines_mode">
         <p>Color block</p>
         <button>
           <Spine
@@ -38,7 +38,7 @@ function SpinesGenerator(props) {
             })} />
         </button>
       </div>
-      <div>
+      <div className="spines_mode">
         <p>Color gradient</p>
         <button>
           <Spine
@@ -52,7 +52,7 @@ function SpinesGenerator(props) {
             })} />
         </button>
       </div>
-      <div>
+      <div className="spines_mode">
         <p>Cover crop</p>
         <button>
           <Spine
@@ -66,7 +66,7 @@ function SpinesGenerator(props) {
             })} />
         </button>
       </div>
-      <div>
+      <div className="spines_mode">
         <p>Cover blur</p>
         <button>
           <Spine

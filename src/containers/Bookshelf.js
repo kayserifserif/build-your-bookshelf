@@ -16,15 +16,14 @@ class Bookshelf extends Component {
       <div className="bookshelf">
         <h2>Your bookshelf</h2>
         {/*<ul className="bookshelf_list bookList">*/}
-        <ul className="bookshelf_bookshelf">
+        <ul className="bookshelf_list">
           {this.props.books.map((item, i) => (
-            <li key={item.data.cover_i} className="bookshelf_bookSpine">
+            <li key={item.data.cover_i} className="bookshelf_item">
               {/*<Book
                 item={item}
                 action="remove"
                 removeBook={this.props.removeBook} />*/}
               <Spine
-                className="spineCanvas"
                 mode={item.mode} data={item.data}
                 cover_url={item.cover_url} colors={item.colors} />
             </li>

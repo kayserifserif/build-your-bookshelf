@@ -157,9 +157,9 @@ function SearchResults(props) {
       return (
         <div className="search_results">
           <p>Showing {props.start + 1}–{props.start + props.results.docs.length} of {props.results.numFound} results for "{props.query}"</p>
-          <ul className="results_list bookList">
+          <ul className="results_list">
             {props.results.docs.map((item, i) => (
-              <li key={item.key} className="bookList_item">
+              <li key={item.key} className="results_item">
                 <BookResult
                   item={item}
                   action="add"

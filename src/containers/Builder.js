@@ -15,6 +15,7 @@ class Builder extends Component {
 
     this.addBook = this.addBook.bind(this);
     this.removeBook = this.removeBook.bind(this);
+    this.clearBooks = this.clearBooks.bind(this);
   }
 
   render() {
@@ -23,7 +24,7 @@ class Builder extends Component {
         <h1>Build Your Bookshelf</h1>
         <div className="builder">
           <BookSearch books={this.state.books} addBook={this.addBook} />
-          <Bookshelf books={this.state.books} removeBook={this.removeBook} />
+          <Bookshelf books={this.state.books} removeBook={this.removeBook} clearBooks={this.clearBooks} />
         </div>
       </main>
     );
@@ -44,6 +45,10 @@ class Builder extends Component {
       this.setState({ books: _books });
       console.log(this.state);
     }
+  }
+
+  clearBooks() {
+    this.setState({ books: [] });
   }
 }
 

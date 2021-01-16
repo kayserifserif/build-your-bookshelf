@@ -16,7 +16,6 @@ function SpinesGenerator(props) {
   let coverUrlCors = "https://cors-anywhere.herokuapp.com/" + coverUrl;
 
   const palette = usePalette(coverUrlCors);
-  console.log(palette);
 
   return (
     <div className="spines">
@@ -84,7 +83,6 @@ function SpinesGenerator(props) {
   );
 
   function handleAdd(spineData) {
-    console.log("SpinesGenerator", spineData);
     props.handleAdd(spineData);
   }
 

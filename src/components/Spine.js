@@ -163,7 +163,7 @@ Spine.propTypes = {
   /**
    * Palette colors based on the book cover
    */
-  colors: PropTypes.object.isRequired
+  colors: PropTypes.object
 };
 
 Spine.defaultProps = {

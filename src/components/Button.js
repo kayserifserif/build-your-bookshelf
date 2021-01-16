@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 // assets
 import './Button.css';
 
+/**
+ * Action button to use in interfaces
+ */
 function Button(props) {
   return (
     <button className="actionBtn" onClick={props.onClick} disabled={props.disabled}>

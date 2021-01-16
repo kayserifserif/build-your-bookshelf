@@ -1,6 +1,9 @@
+// modules
 import React, { Component } from 'react';
+// components
 import SpineCanvas from './SpineCanvas';
-
+// assets
+import './Bookshelf.css';
 import empty_Bookshelf from './img/empty_Bookshelf.webp';
 
 class Bookshelf extends Component {

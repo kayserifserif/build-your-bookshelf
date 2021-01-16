@@ -1,5 +1,7 @@
+// modules
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+// components
 import Builder from './Builder';
 import Spines from './Spines';
 

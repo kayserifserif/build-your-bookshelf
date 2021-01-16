@@ -1,7 +1,10 @@
+// modules
 import React from 'react';
 import { usePalette } from 'react-palette';
-
+// components
 import SpineCanvas from './SpineCanvas';
+// assets
+import './SpineGenerator.css';
 
 function SpineGenerator(props) {
 

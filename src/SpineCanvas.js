@@ -1,3 +1,4 @@
+// modules
 import React, { useRef, useEffect } from 'react';
 
 const INCH_PER_PAGE = 1 / 92.0;

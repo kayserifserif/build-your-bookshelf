@@ -1,8 +1,11 @@
+// modules
 import React, { Component } from 'react';
 import ReactPaginate from 'react-paginate';
-
+// components
 import Book from './Book';
 import SpineGenerator from './SpineGenerator';
+// assets
+import './BookSearch.css';
 
 class BookSearch extends Component {
   constructor(props) {

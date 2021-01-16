@@ -1,0 +1,17 @@
+.spines {
+  display: flex;
+}
+
+.spines > * {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+}
+
+.spines canvas {
+  margin: auto;
+}
+
+.spines p {
+  text-align: center;
+}

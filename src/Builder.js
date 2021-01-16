@@ -1,6 +1,10 @@
+// modules
 import React, { Component } from 'react';
+// components
 import BookSearch from './BookSearch';
 import Bookshelf from './Bookshelf';
+// assets
+import './Builder.css';
 
 class Builder extends Component {
   constructor(props) {

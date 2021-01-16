@@ -1,6 +1,8 @@
+// modules
 import React from 'react';
+// components
 import SpineGenerator from './SpineGenerator';
-
+// assets
 import coverData from './covers/covers.json'
 
 console.log(coverData);

@@ -1,6 +1,7 @@
 // modules
 import React, { Component } from 'react';
 // components
+import Header from '../components/Header';
 import BookSearch from './BookSearch';
 import Bookshelf from './Bookshelf';
 // assets
@@ -20,13 +21,10 @@ class Builder extends Component {
 
   render() {
     return (
-      <main>
-        <h1>Build Your Bookshelf</h1>
-        <div className="builder">
-          <BookSearch books={this.state.books} addBook={this.addBook} />
-          <Bookshelf books={this.state.books} removeBook={this.removeBook} clearBooks={this.clearBooks} />
-        </div>
-      </main>
+      <div className="builder">
+        <Bookshelf books={this.state.books} removeBook={this.removeBook} clearBooks={this.clearBooks} />
+        <BookSearch books={this.state.books} addBook={this.addBook} />
+      </div>
     );
   }
 

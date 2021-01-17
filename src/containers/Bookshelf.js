@@ -13,10 +13,22 @@ import empty_Bookshelf from '../assets/empty_Bookshelf.webp';
  */
 class Bookshelf extends Component {
   render() {
+    let changeEditingLink;
+    if (this.props.isEditing) {
+      changeEditingLink = <a href="/" className="changeEditingLink">Done</a>;
+    } else {
+      changeEditingLink = <a href="/edit" className="changeEditingLink">Edit</a>;
+    }
+
     return (
       <div className="bookshelf">
         <h2>Your bookshelf</h2>
-        <Button onClick={this.props.clearBooks} disabled={this.props.books.length === 0}>Clear</Button>
+        <div className="bookshelf_toolbar">
+          {this.props.isEditing &&
+            <Button onClick={this.props.clearBooks} disabled={this.props.books.length === 0}>Clear</Button>
+          }
+          {changeEditingLink}
+        </div>
         <ul className="bookshelf_list">
           {this.props.books.map((item, i) => (
             <li key={item.data.cover_i} className="bookshelf_item">

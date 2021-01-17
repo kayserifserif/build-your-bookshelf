@@ -1,4 +1,8 @@
 .bookshelf {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
   background-color: #F7F7F7;
   padding: 4em;
   margin: 2em;
@@ -6,15 +10,37 @@
   height: calc(100vh - 4em);
 }
 
+.bookshelf_toolbar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-items: center;
+}
+
+.isEditing .bookshelf_toolbar {
+  justify-items: stretch;
+}
+
+.bookshelf_toolbar > * {
+  grid-column: 1;
+}
+
+.isEditing .changeEditingLink {
+  grid-column: 2;
+}
+
 .bookshelf_list {
-  height: 485px;
+  width: 100%;
+  height: 100vw;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  background-color: #C4967C;
+  background-color: none;
   background-image: url('../assets/empty_Bookshelf.webp');
   background-repeat: no-repeat;
+  background-position: 50% top;
   background-size: contain;
 }
 

@@ -10,7 +10,7 @@
   height: calc(100vh - 4em);
 }
 
-.isEditing .bookshelf {
+.bookshelf--editing {
   box-shadow: rgba(102, 54, 27, 0.1) 0px 2px 15px 3px;
 }
 
@@ -22,7 +22,7 @@
   justify-items: center;
 }
 
-.isEditing .bookshelf_toolbar {
+.bookshelf--editing .bookshelf_toolbar {
   justify-items: stretch;
 }
 
@@ -30,7 +30,7 @@
   grid-column: 1;
 }
 
-.isEditing .changeEditingLink {
+.bookshelf--editing .changeEditingLink {
   grid-column: 2;
 }
 

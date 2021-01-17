@@ -21,7 +21,7 @@ class Bookshelf extends Component {
     }
 
     return (
-      <div className="bookshelf">
+      <div className={"bookshelf " + ((this.props.isEditing) ? "bookshelf--editing" : "bookshelf--viewing")}>
         <h2>Your bookshelf</h2>
         <div className="bookshelf_toolbar">
           {this.props.isEditing &&
@@ -47,11 +47,21 @@ Bookshelf.propTypes = {
   /**
    * Books added to bookshelf
    */
-  books: PropTypes.array
+  books: PropTypes.array,
+  /**
+   * Handler to clear books from bookshelf
+   */
+  clearBooks: PropTypes.func,
+  /**
+   * Is the app in editing mode?
+   */
+  isEditing: PropTypes.bool
 };
 
 Bookshelf.defaultProps = {
-  books: []
+  books: [],
+  clearBooks: e => console.log(e),
+  isEditing: false
 };
 
 export default Bookshelf;

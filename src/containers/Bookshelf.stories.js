@@ -10,4 +10,8 @@ export default {
 
 const Template = (args) => <Bookshelf {...args} />;
 
-export const Default = Template.bind({});
+export const Viewing = Template.bind({});
+Viewing.args = { isEditing: false };
+
+export const Editing = Template.bind({});
+Editing.args = { isEditing: true };

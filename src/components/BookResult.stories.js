@@ -22,7 +22,8 @@ export default {
       title: 'Emma',
       publisher: ['Dramatic Pub.']
     }
-  }
+  },
+    decorators: [(Story) => <div style={{ width: '250px', height: '500px' }}><Story/></div>]
 };
 
 const Template = (args) => <BookResult {...args} />;

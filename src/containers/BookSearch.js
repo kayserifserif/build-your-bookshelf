@@ -25,8 +25,8 @@ class BookSearch extends Component {
     };
 
     this.api_url = "https://openlibrary.org/search.json?";
-    this.apiPerPage = 100;
-    this.displayPerPage = 10;
+    this.API_PER_PAGE = 100;
+    this.DISPLAY_PER_PAGE = 10;
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -79,7 +79,6 @@ class BookSearch extends Component {
   }
 
   handleAddBook(event) {
-    // this.props.addBook(event);
     this.setState({
       addingBook: event
     });
@@ -93,14 +92,14 @@ class BookSearch extends Component {
   }
 
   fetchResultsPage(url, start) {
-    let apiPage = Math.floor(start / this.apiPerPage) + 1;
+    let apiPage = Math.floor(start / this.API_PER_PAGE) + 1;
     fetch(url + "&page=" + apiPage)
       .then(response => response.json())
       .then(data => {
-        data.docs = data.docs.slice(start % this.apiPerPage, start + this.displayPerPage);
+        data.docs = data.docs.slice(start % this.API_PER_PAGE, start + this.DISPLAY_PER_PAGE);
         this.setState({
           results: data,
-          pageCount: Math.ceil(data.numFound / this.apiPerPage * this.displayPerPage)
+          pageCount: Math.ceil(data.numFound / this.API_PER_PAGE * this.DISPLAY_PER_PAGE)
         });
         console.log(data);
       });
@@ -108,7 +107,7 @@ class BookSearch extends Component {
 
   handlePageClick(data) {
     // TODO: go to top of search results
-    let start = (data.selected * this.displayPerPage) % this.apiPerPage;
+    let start = (data.selected * this.DISPLAY_PER_PAGE) % this.API_PER_PAGE;
     this.setState({start: start});
     this.fetchResultsPage(this.state.queryURL, start);
   }

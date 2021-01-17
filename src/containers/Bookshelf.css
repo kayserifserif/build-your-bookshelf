@@ -3,11 +3,15 @@
   flex-direction: column;
   align-items: center;
   gap: 1em;
-  background-color: #F7F7F7;
+  /* background-color: #F7F7F7; */
   padding: 4em;
   margin: 2em;
   border-radius: 15px;
   height: calc(100vh - 4em);
+}
+
+.isEditing .bookshelf {
+  box-shadow: rgba(102, 54, 27, 0.1) 0px 2px 15px 3px;
 }
 
 .bookshelf_toolbar {

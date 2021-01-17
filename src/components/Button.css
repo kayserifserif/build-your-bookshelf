@@ -6,7 +6,7 @@
 .actionBtn,
 [role="button"] {
   padding: .5em;
-  background: none;
+  background: #fff;
   color: blue;
   border: 1px solid currentColor;
   border-radius: 5px;

@@ -22,14 +22,12 @@ class BookResult extends Component {
     let actionBtn;
     if (this.props.action === "add") {
       image = <img
-          className="result_cover"
+          className="result_cover_img"
           src={"http://covers.openlibrary.org/b/olid/" + this.props.item.cover_edition_key + "-M.jpg"}
           alt={"Cover of: " + this.props.item.title} />;
       if (!this.props.isInBooks) {
-        // actionBtn = <button className="actionBtn" onClick={this.handleAdd.bind(this, this.props.item)}>Add</button>;
         actionBtn = <Button onClick={this.handleAdd.bind(this, this.props.item)}>Add</Button>;
       } else {
-        // actionBtn = <button className="actionBtn" disabled>Added</button>;
         actionBtn = <Button disabled={true}>Added</Button>;
       }
     } else if (this.props.action === "remove") {
@@ -41,28 +39,33 @@ class BookResult extends Component {
     }
 
     return (
-      <div className="result">
-        {image}
+      <button
+        className="result"
+        onClick={this.handleAdd.bind(this, this.props.item)}
+        disabled={this.props.action === 'add' && this.props.isInBooks}>
+        <div className="result_cover">
+          {image}
+          {actionBtn}
+        </div>
         <div className="result_info">
           <h3 className="result_title">{this.props.item.title}</h3>
           <p className="result_author">{Array.isArray(this.props.item.author_name) ? this.props.item.author_name.join(', ') : this.props.item.author_name}</p>
           <p className="result_firstPublished">First published: {this.props.item.first_publish_year}</p>
         </div>
-        {actionBtn}
-      </div>
+      </button>
     );
   }
 
   handleAdd(item) {
-    this.props.addBook(item);
+    if (this.props.action === 'add' && !this.props.isInBooks) {
+      this.props.addBook(item);
+    }
   }
 
   handleRemove(item) {
     this.props.removeBook(item);
   }
 }
-
-// docs
 
 BookResult.propTypes = {
   /**

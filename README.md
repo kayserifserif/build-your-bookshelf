@@ -12,7 +12,14 @@ Emulating this lifelong accumulative experience, Build Your Bookshelf is a tool 
 ## Project notes
 
 - Aside from personal bookshelf, potential "share a shelf" feature. Create a shelf of books and get a link to share. Like book lists but more visually interesting.
-- In lieu of a database of book spines, algorithms to generate book spines in different styles with title, author, possibly publisher. Proposed styles: cover crop, cover with blur, dominant colour, vintage style, embellished floral style, dark style. Ability to choose style for each book or one style with randomness for entire bookshelf.
+- In lieu of a database of book spines, algorithms to generate book spines in different styles with title, author, possibly publisher. Ability to choose style for each book or one style with randomness for entire bookshelf. Possible styles:
+    + [x] Dominant colour
+    + [x] Colours with gradient
+    + [x] Cover crop
+    + [x] Cover with blur
+    + [ ] Vintage style
+    + [ ] Embellished floral style
+    + [ ] Dark style
 - Ability to arrange books around bookshelf (including stacked) – ability to automatically sort by genre/author/colour?
 
 ## [Development](https://github.com/whykatherine/build-your-bookshelf/blob/master/DEVELOPMENT.md)

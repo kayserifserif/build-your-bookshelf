@@ -20,10 +20,15 @@ Emulating this lifelong accumulative experience, Build Your Bookshelf is a tool 
     + [ ] Vintage style
     + [ ] Embellished floral style
     + [ ] Dark style
-- Ability to arrange books around bookshelf (including stacked) – ability to automatically sort by genre/author/colour?
+- Ability to automatically sort by genre/author/colour?
+- "Shelfie" – how your ideal bookshelf shifts as your sense of self changes
+- Ability to take/upload pictures and add through image recognition, e.g. from out at library or bookshelf
+- Sections of a bookshelf, cataloguing/classification systems
+- Ability to arrange/display books in different ways: lined up horizontally, stacked in a pile, spotlighted (cover)
 
 ## [Development](https://github.com/whykatherine/build-your-bookshelf/blob/master/DEVELOPMENT.md)
 
 ## Acknowledgements
 
 - [Book Shelf icon](https://icons8.com/icons/set/book-shelf) icon by [Icons8](https://icons8.com/)
+- https://twitter.com/16kbps/status/1352415699029938180

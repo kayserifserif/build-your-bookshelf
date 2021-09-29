@@ -32,3 +32,4 @@ Emulating this lifelong accumulative experience, Build Your Bookshelf is a tool 
 
 - [Book Shelf icon](https://icons8.com/icons/set/book-shelf) icon by [Icons8](https://icons8.com/)
 - https://twitter.com/16kbps/status/1352415699029938180
+- https://kylechayka.substack.com/p/essay-the-digital-death-of-collecting

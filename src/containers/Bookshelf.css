@@ -42,7 +42,7 @@
   flex-wrap: wrap;
   align-items: flex-end;
   background-color: none;
-  background-image: url('../assets/empty_Bookshelf.webp');
+  /* background-image: url('../assets/empty_Bookshelf.webp'); */
   background-repeat: no-repeat;
   background-position: 50% top;
   background-size: contain;

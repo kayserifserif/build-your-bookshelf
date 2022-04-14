@@ -1,11 +1,13 @@
 // modules
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // components
 import Header from './components/Header';
 import BookSearch from './containers/BookSearch';
 import Bookshelf from './containers/Bookshelf';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import Edit from './pages/Edit';
 import Spines from './containers/Spines';
 
 class App extends Component {
@@ -23,35 +25,19 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Switch>
+        <Routes>
 
-          <Route exact path="/">
-            <main className="main isViewing">
-              <Header />
-              <Bookshelf
-                books={this.state.books} removeBook={this.removeBook} clearBooks={this.clearBooks}
-                isEditing={false} />
-              <Footer />
-            </main>
-          </Route>
+          <Route exact path="/" element={
+            <Home books={this.state.books} removeBook={this.removeBook} clearBooks={this.clearBooks} />
+          } />
 
-          <Route path="/edit">
-            <main className="main isEditing">
-              <Header />
-              <BookSearch
-                  books={this.state.books} addBook={this.addBook} />
-              <Bookshelf
-                books={this.state.books} removeBook={this.removeBook} clearBooks={this.clearBooks}
-                isEditing={true} />
-              <Footer />
-            </main>
-          </Route>
+          <Route path="/edit" element={
+            <Edit books={this.state.books} removeBook={this.removeBook} clearBooks={this.clearBooks} addBook={this.addBook} />
+          } />
 
-          <Route path="/spines">
-            <Spines />
-          </Route>
+          <Route path="/spines" element={<Spines />} />
 
-        </Switch>
+        </Routes>
       </Router>
     );
   }

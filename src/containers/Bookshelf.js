@@ -6,7 +6,7 @@ import Spine from '../components/Spine';
 import Button from '../components/Button';
 // assets
 import './Bookshelf.css';
-import empty_Bookshelf from '../assets/empty_Bookshelf.webp';
+// import empty_Bookshelf from '../assets/empty_Bookshelf.webp';
 
 /**
  * Bookshelf to which books are added

@@ -4,6 +4,7 @@ import Bookshelf from "../containers/Bookshelf";
 import Footer from "../components/Footer";
 
 function Edit(props) {
+  console.log(props.books);
   return (
     <main className="main isEditing">
       <Header />

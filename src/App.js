@@ -45,6 +45,7 @@ class App extends Component {
   addBook(item) {
     let _books = this.state.books.slice();
     _books.push(item);
+    console.log(_books);
     this.setState({ books: _books });
     console.log(this.state);
   }

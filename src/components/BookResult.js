@@ -39,7 +39,7 @@ class BookResult extends Component {
     }
 
     return (
-      <button
+      <div
         className="result"
         onClick={this.handleAdd.bind(this, this.props.item)}
         disabled={this.props.action === 'add' && this.props.isInBooks}>
@@ -52,7 +52,7 @@ class BookResult extends Component {
           <p className="result_author">{Array.isArray(this.props.item.author_name) ? this.props.item.author_name.join(', ') : this.props.item.author_name}</p>
           <p className="result_firstPublished">First published: {this.props.item.first_publish_year}</p>
         </div>
-      </button>
+      </div>
     );
   }
 

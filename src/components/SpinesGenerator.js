@@ -19,70 +19,74 @@ function SpinesGenerator(props) {
 
   return (
     <div className="spines">
-      {/*<div>
-        <p>Original cover</p>
-        <img src={coverUrl} alt="cover" />
-      </div>*/}
-      <div className="spines_mode">
-        <p>Color block</p>
-        <button>
-          <Spine
-            mode="colorBlock" data={props.data}
-            cover_url={coverUrl} colors={palette.data}
-            handleAdd={handleAdd.bind(this, {
-              mode: 'colorBlock',
-              data: props.data,
-              cover_url: coverUrl,
-              colors: palette.data
-            })} />
-        </button>
-      </div>
-      <div className="spines_mode">
-        <p>Color gradient</p>
-        <button>
-          <Spine
-            mode="colorGradient" data={props.data}
-            cover_url={coverUrl} colors={palette.data}
-            handleAdd={handleAdd.bind(this, {
-              mode: 'colorGradient',
-              data: props.data,
-              cover_url: coverUrl,
-              colors: palette.data
-            })} />
-        </button>
-      </div>
-      <div className="spines_mode">
-        <p>Cover crop</p>
-        <button>
-          <Spine
-            mode="coverCrop" data={props.data}
-            cover_url={coverUrl}
-            handleAdd={handleAdd.bind(this, {
-              mode: 'coverCrop',
-              data: props.data,
-              cover_url: coverUrl,
-              colors: palette.data
-            })} />
-        </button>
-      </div>
-      <div className="spines_mode">
-        <p>Cover blur</p>
-        <button>
-          <Spine
-            mode="coverBlur" data={props.data}
-            cover_url={coverUrl}
-            handleAdd={handleAdd.bind(this, {
-              mode: 'coverBlur',
-              data: props.data,
-              cover_url: coverUrl,
-              colors: palette.data
-            })} />
-        </button>
+      <div className="black" onClick={props.cancelAdd}></div>
+      <div className="overlay">
+        <div>
+          <p>Original cover</p>
+          <img src={coverUrl} alt="cover" />
+        </div>
+        <div className="spines_mode">
+          <p>Color block</p>
+          <button>
+            <Spine
+              mode="colorBlock" data={props.data}
+              cover_url={coverUrl} colors={palette.data}
+              handleAdd={handleAdd.bind(this, {
+                mode: 'colorBlock',
+                data: props.data,
+                cover_url: coverUrl,
+                colors: palette.data
+              })} />
+          </button>
+        </div>
+        <div className="spines_mode">
+          <p>Color gradient</p>
+          <button>
+            <Spine
+              mode="colorGradient" data={props.data}
+              cover_url={coverUrl} colors={palette.data}
+              handleAdd={handleAdd.bind(this, {
+                mode: 'colorGradient',
+                data: props.data,
+                cover_url: coverUrl,
+                colors: palette.data
+              })} />
+          </button>
+        </div>
+        <div className="spines_mode">
+          <p>Cover crop</p>
+          <button>
+            <Spine
+              mode="coverCrop" data={props.data}
+              cover_url={coverUrl}
+              handleAdd={handleAdd.bind(this, {
+                mode: 'coverCrop',
+                data: props.data,
+                cover_url: coverUrl,
+                colors: palette.data
+              })} />
+          </button>
+        </div>
+        <div className="spines_mode">
+          <p>Cover blur</p>
+          <button>
+            <Spine
+              mode="coverBlur" data={props.data}
+              cover_url={coverUrl}
+              handleAdd={handleAdd.bind(this, {
+                mode: 'coverBlur',
+                data: props.data,
+                cover_url: coverUrl,
+                colors: palette.data
+              })} />
+          </button>
+        </div>
       </div>
     </div>
   );
 
   function handleAdd(spineData) {
+    console.log(spineData);
     props.handleAdd(spineData);
   }
 

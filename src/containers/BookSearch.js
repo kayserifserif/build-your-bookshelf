@@ -8,6 +8,10 @@ import SpinesGenerator from '../components/SpinesGenerator';
 // assets
 import './BookSearch.css';
 
+const API_URL = "https://openlibrary.org/search.json?";
+const API_PER_PAGE = 100;
+const DISPLAY_PER_PAGE = 10;
+
 /**
  * Interface for searching and browsing results
  */
@@ -24,15 +28,12 @@ class BookSearch extends Component {
       results: {}
     };
 
-    this.api_url = "https://openlibrary.org/search.json?";
-    this.API_PER_PAGE = 100;
-    this.DISPLAY_PER_PAGE = 10;
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleAddBook = this.handleAddBook.bind(this);
     this.handleAddSpine = this.handleAddSpine.bind(this);
     this.handlePageClick = this.handlePageClick.bind(this);
+    this.cancelAdd = this.cancelAdd.bind(this);
   }
 
   render() {
@@ -53,7 +54,8 @@ class BookSearch extends Component {
             addBook={this.handleAddBook}
             addingBook={this.state.addingBook}
             addSpine={this.handleAddSpine}
-            handlePageClick={this.handlePageClick} />
+            handlePageClick={this.handlePageClick}
+            cancelAdd={this.cancelAdd} />
         }
       </div>
     );
@@ -68,7 +70,7 @@ class BookSearch extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const queryType = (this.state.queryType === 'all') ? 'q' : this.state.queryType;
-    let url = this.api_url + queryType + '=' + this.state.query;
+    let url = API_URL + queryType + '=' + this.state.query;
     this.setState({
       showResults: true,
       results: {},
@@ -92,14 +94,14 @@ class BookSearch extends Component {
   }
 
   fetchResultsPage(url, start) {
-    let apiPage = Math.floor(start / this.API_PER_PAGE) + 1;
+    let apiPage = Math.floor(start / API_PER_PAGE) + 1;
     fetch(url + "&page=" + apiPage)
       .then(response => response.json())
       .then(data => {
-        data.docs = data.docs.slice(start % this.API_PER_PAGE, start + this.DISPLAY_PER_PAGE);
+        data.docs = data.docs.slice(start % API_PER_PAGE, start + DISPLAY_PER_PAGE);
         this.setState({
           results: data,
-          pageCount: Math.ceil(data.numFound / this.API_PER_PAGE * this.DISPLAY_PER_PAGE)
+          pageCount: Math.ceil(data.numFound / API_PER_PAGE * DISPLAY_PER_PAGE)
         });
         console.log(data);
       });
@@ -107,9 +109,13 @@ class BookSearch extends Component {
 
   handlePageClick(data) {
     // TODO: go to top of search results
-    let start = (data.selected * this.DISPLAY_PER_PAGE) % this.API_PER_PAGE;
+    let start = (data.selected * DISPLAY_PER_PAGE) % API_PER_PAGE;
     this.setState({start: start});
     this.fetchResultsPage(this.state.queryURL, start);
+  }
+
+  cancelAdd() {
+    this.setState({addingBook: false});
   }
 }
 
@@ -153,7 +159,7 @@ function SearchResults(props) {
     if (props.results.numFound > 0) {
       return (
         <div className="search_results">
-          <p>Showing {props.start + 1}–{props.start + props.results.docs.length} of {props.results.numFound} results for "{props.query}"</p>
+          <p>Showing {props.start + 1}&ndash;{props.start + props.results.docs.length} of {props.results.numFound} results for "{props.query}"</p>
           <ul className="results_list">
             {props.results.docs.map((item, i) => (
               <li key={item.key} className="results_item">
@@ -162,9 +168,6 @@ function SearchResults(props) {
                   action="add"
                   addBook={props.addBook}
                   isInBooks={props.books.map(book => book.data).includes(item)} />
-                {props.addingBook === item &&
-                  <SpinesGenerator data={item} handleAdd={props.addSpine} />
-                }
               </li>
             ))}
           </ul>
@@ -174,6 +177,9 @@ function SearchResults(props) {
             containerClassName={'pagination'}
             subContainerClassName={'pages pagination'}
             activeClassName={'active'} />
+          {props.addingBook &&
+            <SpinesGenerator data={props.addingBook} handleAdd={props.addSpine} cancelAdd={props.cancelAdd} />
+          }
         </div>
       );
     } else {

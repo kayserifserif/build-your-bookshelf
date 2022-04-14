@@ -105,10 +105,10 @@ function Spine(props) {
       }
     }
 
-    ctx.font = "11px serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "bottom";
-    ctx.fillText(data.publisher[0], ctx.canvas.width * 0.5, ctx.canvas.height - 20);
+    // ctx.font = "11px serif";
+    // ctx.textAlign = "center";
+    // ctx.textBaseline = "bottom";
+    // ctx.fillText(data.publisher[0], ctx.canvas.width * 0.5, ctx.canvas.height - 20);
   }
 
   useEffect(() => {
@@ -142,11 +142,16 @@ function Spine(props) {
 
   }, [draw]);
 
+  // function handleAdd(spineData) {
+  //   console.log(spineData);
+  // }
+
   // TODO:
   // fix unknown prop error https://reactjs.org/warnings/unknown-prop.html
   // account for results without covers
   return (
-    <canvas className="spine" ref={canvasRef} {...props} onClick={props.handleAdd}></canvas>
+    // <canvas className="spine" ref={canvasRef} {...props} onClick={props.handleAdd}></canvas>
+    <canvas className="spine" ref={canvasRef} onClick={props.handleAdd}></canvas>
   );
 }
 

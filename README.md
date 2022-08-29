@@ -6,7 +6,7 @@ The bookshelf you begin building for the first time as an independent person can
 
 Emulating this lifelong accumulative experience, Build Your Bookshelf is a tool for you to virtually build an ideal bookshelf that speaks to the person you are today.
 
-![A stack of books with visible titles, standing next to another stack](https://github.com/whykatherine/build-your-bookshelf/blob/master/IMG_9583.jpeg)
+![A stack of books with visible titles, standing next to another stack](IMG_9583.jpeg)
 *A stack of books ranging in genre from fiction, poetry, memoir, politics, art, economics, education, and more*
 
 ## Project notes

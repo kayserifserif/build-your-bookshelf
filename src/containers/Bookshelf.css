@@ -17,7 +17,7 @@
 .bookshelf_toolbar {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 1fr auto;
   align-items: center;
   justify-items: center;
 }
@@ -26,12 +26,12 @@
   justify-items: stretch;
 }
 
-.bookshelf_toolbar > * {
+/* .bookshelf_toolbar > * {
   grid-column: 1;
-}
+} */
 
 .bookshelf--editing .changeEditingLink {
-  grid-column: 2;
+  grid-column: 3;
 }
 
 .bookshelf_list {
@@ -42,10 +42,14 @@
   flex-wrap: wrap;
   align-items: flex-end;
   background-color: none;
-  /* background-image: url('../assets/empty_Bookshelf.webp'); */
+  /* background-image: url('../assets/empty_Bookshelf.webp');
   background-repeat: no-repeat;
   background-position: 50% top;
-  background-size: contain;
+  background-size: contain; */
+}
+
+.bookshelf--text {
+  display: block;
 }
 
 .bookshelf_item {

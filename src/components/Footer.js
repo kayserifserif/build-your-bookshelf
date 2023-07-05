@@ -4,7 +4,7 @@ import React from 'react';
 function Footer(props) {
   return (
     <footer className="footer">
-      <p><a href="https://whykatherine.github.io">Katherine Yang</a> &copy; {new Date().getFullYear()}</p>
+      <p><a href="https://kayserifserif.place">Katherine Yang</a> &copy; {new Date().getFullYear()}</p>
     </footer>
   );
 }

@@ -26,7 +26,7 @@ Emulating this lifelong accumulative experience, Build Your Bookshelf is a tool 
 - Sections of a bookshelf, cataloguing/classification systems
 - Ability to arrange/display books in different ways: lined up horizontally, stacked in a pile, spotlighted (cover)
 
-## [Development](https://github.com/whykatherine/build-your-bookshelf/blob/master/DEVELOPMENT.md)
+## [Development](https://github.com/kayserifserif/build-your-bookshelf/blob/master/DEVELOPMENT.md)
 
 ## Acknowledgements
 
